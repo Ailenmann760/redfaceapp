@@ -8,12 +8,12 @@
   "theme_color": "#D90429",
   "icons": [
     {
-      "src": "./redface-logo.png",
+      "src": "./redfacelogo.png",
       "sizes": "192x192",
       "type": "image/png"
     },
     {
-      "src": "./redface-logo.png",
+      "src": "./redfacelogo.png",
       "sizes": "512x512",
       "type": "image/png"
     }

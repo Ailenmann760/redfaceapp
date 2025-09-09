@@ -40,41 +40,63 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
-        <nav class="navbar" role="navigation" aria-label="Main navigation">
+    <header class="main-header">
+        <nav class="top-nav" role="navigation" aria-label="Main navigation">
             <a href="#" class="logo-container">
-                <img src="./redfacelogo.png" alt="RedFace Logo" class="logo"> <span class="logo-text">REDFACE</span>
+                <img src="./redfacelogo.png" alt="RedFace Logo" class="logo logo-fade">
+                <span class="logo-text">REDFACE</span>
             </a>
+            <div class="header-actions">
+                <button id="dark-mode-toggle" aria-label="Toggle dark mode">
+                    <i class="fas fa-sun" aria-hidden="true"></i>
+                </button>
+                <button id="login-btn" class="login-btn">Log in</button>
+                <button id="launch-btn-top" class="launch-btn">Join Now</button>
+            </div>
             <button class="menu-toggle" aria-controls="main-menu" aria-expanded="false" aria-label="Toggle navigation menu">
                 <span class="bar"></span>
                 <span class="bar"></span>
                 <span class="bar"></span>
             </button>
-            <div class="nav-links" id="main-menu">
-                <a href="#features" class="nav-link">Features</a>
-                <a href="#how-it-works" class="nav-link">How It Works</a>
-                <a href="#faq" class="nav-link">FAQ</a>
-                <button class="launch-btn nav-link" onclick="window.location.href='https://redfaceapp.netlify.app'">
-                    Launch App
-                </button>
-            </div>
-            <button id="dark-mode-toggle" aria-label="Toggle dark mode">
-                <i class="fas fa-sun" aria-hidden="true"></i>
-            </button>
         </nav>
+        <nav class="icon-nav" role="navigation" aria-label="Secondary navigation with icons">
+            <a href="#features" class="icon-link">
+                <i class="fas fa-home"></i>
+                <span>Home</span>
+            </a>
+            <a href="#previews" class="icon-link">
+                <i class="fas fa-comments"></i>
+                <span>Chat</span>
+            </a>
+            <a href="#how-it-works" class="icon-link">
+                <i class="fas fa-bell"></i>
+                <span>Updates</span>
+            </a>
+            <a href="#faq" class="icon-link">
+                <i class="fas fa-user-circle"></i>
+                <span>Profile</span>
+            </a>
+            <a href="#" class="icon-link">
+                <i class="fas fa-ellipsis-h"></i>
+                <span>More</span>
+            </a>
+        </nav>
+        <div class="mobile-menu-container" id="main-menu">
+            <a href="#features" class="nav-link">Features</a>
+            <a href="#how-it-works" class="nav-link">How It Works</a>
+            <a href="#faq" class="nav-link">FAQ</a>
+            <button class="launch-btn mobile-launch-btn">Launch App</button>
+        </div>
     </header>
 
     <main>
         <section class="hero-section" id="hero">
-            <div class="particles-container"></div>
             <div class="hero-content">
-                <h1 class="hero-title">REDFACE</h1>
-                <p class="hero-slogan">Connect. Own.</p>
-                <button class="launch-btn hero-launch-btn" onclick="window.location.href='https://redfaceapp.netlify.app'">
+                <h1 class="hero-slogan breathe">Connect. Own.</h1>
+                <button id="launch-btn-hero" class="launch-btn hero-launch-btn">
                     <span class="launch-text">Launch App</span>
                     <span class="glow-effect"></span>
                 </button>
@@ -104,7 +126,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="glass-card mockup-card mockup-dark slide-up" style="--card-delay: 0.2s;">
+                    <div class="glass-card mockup-card mockup-dark slide-up">
                         <div class="card-header-dark">
                             <i class="fas fa-ellipsis-h"></i>
                         </div>
@@ -115,7 +137,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="glass-card mockup-card mockup-tabs slide-up" style="--card-delay: 0.4s;">
+                    <div class="glass-card mockup-card mockup-tabs slide-up">
                         <div class="card-body-tabs">
                             <div class="tab-item active"><i class="fas fa-home"></i></div>
                             <div class="tab-item"><i class="fas fa-user"></i></div>
@@ -131,32 +153,32 @@
             <div class="container">
                 <h2 class="section-title">Core Features</h2>
                 <div class="features-grid">
-                    <div class="glass-card feature-card slide-up" data-tilt>
+                    <div class="glass-card feature-card slide-up">
                         <i class="fas fa-user-shield icon-glow"></i>
                         <h3>Privacy First</h3>
                         <p>Your data is yours. We prioritize your privacy and security above all else.</p>
                     </div>
-                    <div class="glass-card feature-card slide-up" data-tilt style="--card-delay: 0.1s;">
+                    <div class="glass-card feature-card slide-up" style="--card-delay: 0.1s;">
                         <i class="fas fa-network-wired icon-glow"></i>
                         <h3>Global Connections</h3>
                         <p>Connect with friends and family from around the world, instantly and seamlessly.</p>
                     </div>
-                    <div class="glass-card feature-card slide-up" data-tilt style="--card-delay: 0.2s;">
+                    <div class="glass-card feature-card slide-up" style="--card-delay: 0.2s;">
                         <i class="fas fa-lightbulb icon-glow"></i>
                         <h3>Intuitive UI</h3>
                         <p>A sleek, modern interface designed for effortless navigation and a beautiful experience.</p>
                     </div>
-                    <div class="glass-card feature-card slide-up" data-tilt style="--card-delay: 0.3s;">
+                    <div class="glass-card feature-card slide-up" style="--card-delay: 0.3s;">
                         <i class="fas fa-star-half-alt icon-glow"></i>
                         <h3>Personalized Feeds</h3>
                         <p>Customize your feed to see what matters most to you, with no algorithmic manipulation.</p>
                     </div>
-                    <div class="glass-card feature-card slide-up" data-tilt style="--card-delay: 0.4s;">
+                    <div class="glass-card feature-card slide-up" style="--card-delay: 0.4s;">
                         <i class="fas fa-comments icon-glow"></i>
                         <h3>Real-time Chat</h3>
                         <p>Communicate in real-time with end-to-end encrypted messaging for secure conversations.</p>
                     </div>
-                    <div class="glass-card feature-card slide-up" data-tilt style="--card-delay: 0.5s;">
+                    <div class="glass-card feature-card slide-up" style="--card-delay: 0.5s;">
                         <i class="fas fa-cog icon-glow"></i>
                         <h3>Full Control</h3>
                         <p>From your profile to your content, you're in full control of your digital identity.</p>
@@ -196,29 +218,38 @@
                 <div class="accordion-container">
                     <div class="accordion-item glass-card">
                         <button class="accordion-header" aria-expanded="false" aria-controls="faq-q1">
-                            Is RedFace free to use?
+                            How does RedFace's blockchain technology benefit me?
                             <i class="fas fa-chevron-down accordion-icon"></i>
                         </button>
                         <div id="faq-q1" class="accordion-content">
-                            <p>Yes, RedFace is completely free to use. We offer a premium experience without any hidden costs.</p>
+                            <p>Unlike traditional social media, RedFace is built on the blockchain. This means your data is truly yours. You maintain ownership and control over your profile, content, and information, eliminating the risk of corporate manipulation or data selling. It's true decentralization for your social experience.</p>
                         </div>
                     </div>
                     <div class="accordion-item glass-card">
                         <button class="accordion-header" aria-expanded="false" aria-controls="faq-q2">
-                            How does RedFace protect my privacy?
+                            Can I monetize my content on RedFace?
                             <i class="fas fa-chevron-down accordion-icon"></i>
                         </button>
                         <div id="faq-q2" class="accordion-content">
-                            <p>We use end-to-end encryption for all messages and adhere to a strict privacy policy. Your data is never sold or shared with third parties.</p>
+                            <p>Yes. Through smart contracts, you can set the price for your content. When other users wish to view it, they pay you directly in cryptocurrency. This gives you full control over your earnings and content, a feature major social platforms lack.</p>
                         </div>
                     </div>
                     <div class="accordion-item glass-card">
                         <button class="accordion-header" aria-expanded="false" aria-controls="faq-q3">
-                            Is there a desktop version of the app?
+                            What are some of the key features of the RedFace app?
                             <i class="fas fa-chevron-down accordion-icon"></i>
                         </button>
                         <div id="faq-q3" class="accordion-content">
-                            <p>Currently, RedFace is a mobile-first experience, but we are working on a desktop application for future releases. Stay tuned!</p>
+                            <p>RedFace combines the best of social media with the power of blockchain. Key features include a wallet connect feature, an NFT marketplace, real-time chat and messenger, a dating zone, and "Public Square" where you can join random voice conversations with other users. We also offer options for creators to charge a subscription fee for exclusive content.</p>
+                        </div>
+                    </div>
+                    <div class="accordion-item glass-card">
+                        <button class="accordion-header" aria-expanded="false" aria-controls="faq-q4">
+                            How do I sign up for RedFace?
+                            <i class="fas fa-chevron-down accordion-icon"></i>
+                        </button>
+                        <div id="faq-q4" class="accordion-content">
+                            <p>You can sign up for RedFace using your preferred crypto hot wallets, such as Metamask, Trust Wallet, or Phantom. For a more traditional experience, we also offer sign-up options with Google Authenticator, SMS, or email.</p>
                         </div>
                     </div>
                 </div>
@@ -228,7 +259,7 @@
         <section class="cta-banner fade-in">
             <div class="container">
                 <h2 class="cta-title">Ready to Connect?</h2>
-                <button class="launch-btn cta-launch-btn" onclick="window.location.href='https://redfaceapp.netlify.app'">
+                <button id="launch-btn-cta" class="launch-btn cta-launch-btn">
                     <span class="launch-text">Launch App</span>
                     <span class="glow-effect"></span>
                 </button>
@@ -240,7 +271,7 @@
         <div class="container footer-content">
             <div class="footer-left">
                 <div class="footer-logo">
-                    <img src="./redfacelogo.png" alt="RedFace Logo"> <span class="logo-text">REDFACE</span>
+                    <img src="./redfacelogo.png" alt="RedFace Logo" class="logo-fade"> <span class="logo-text">REDFACE</span>
                 </div>
                 <p class="tagline">Connect. Own. Your social experience.</p>
             </div>

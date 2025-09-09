@@ -53,21 +53,21 @@ document.addEventListener('DOMContentLoaded', () => {
     const body = document.body;
 
     const savedMode = localStorage.getItem('redface-dark-mode');
-    if (savedMode === 'light') {
-        body.classList.add('light-mode');
-        darkModeToggle.innerHTML = '<i class="fas fa-moon"></i>';
-    } else {
+    if (savedMode === 'dark') {
+        body.classList.add('dark-mode');
         darkModeToggle.innerHTML = '<i class="fas fa-sun"></i>';
+    } else {
+        darkModeToggle.innerHTML = '<i class="fas fa-moon"></i>';
     }
 
     darkModeToggle.addEventListener('click', () => {
-        body.classList.toggle('light-mode');
-        if (body.classList.contains('light-mode')) {
-            localStorage.setItem('redface-dark-mode', 'light');
-            darkModeToggle.innerHTML = '<i class="fas fa-moon"></i>';
-        } else {
+        body.classList.toggle('dark-mode');
+        if (body.classList.contains('dark-mode')) {
             localStorage.setItem('redface-dark-mode', 'dark');
             darkModeToggle.innerHTML = '<i class="fas fa-sun"></i>';
+        } else {
+            localStorage.setItem('redface-dark-mode', 'light');
+            darkModeToggle.innerHTML = '<i class="fas fa-moon"></i>';
         }
     });
 

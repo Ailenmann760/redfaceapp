@@ -253,6 +253,8 @@ a:hover {
     text-align: center;
     position: relative;
     overflow: hidden;
+    /* Added hero background image */
+    background: url('./redfacehero.png') no-repeat center center / cover; 
 }
 
 .hero-content {
@@ -290,6 +292,8 @@ a:hover {
     width: 100%;
     height: 100%;
     pointer-events: none;
+    /* Removed background from particles-container as hero-section now handles the main image */
+    background: transparent; 
 }
 
 /* Preview Section */

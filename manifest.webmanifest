@@ -1,0 +1,21 @@
+{
+  "name": "RedFace App",
+  "short_name": "RedFace",
+  "description": "Connect. Own. The social app for a new generation.",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#0A0A0A",
+  "theme_color": "#D90429",
+  "icons": [
+    {
+      "src": "./redface-logo.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "./redface-logo.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

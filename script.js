@@ -1,32 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
 
-    // --- PWA & Redirect Logic ---
-    const redirectUrl = 'https://redfaceapp.netlify.app';
-    const redirectFlag = 'redface-redirected';
-    const stayFlag = 'stay';
-    const noRedirectQuery = 'no-redirect=1';
-
-    // Check for skip flags
-    const urlParams = new URLSearchParams(window.location.search);
-    const hash = window.location.hash.substring(1);
-
-    if (hash === stayFlag || urlParams.has('no-redirect')) {
-        console.log('Redirect skipped due to URL hash or query parameter.');
-    } else {
-        // Check localStorage for the redirect flag
-        const hasRedirected = localStorage.getItem(redirectFlag);
-
-        if (!hasRedirected) {
-            console.log('First visit detected. Auto-redirecting in 6 seconds...');
-            setTimeout(() => {
-                localStorage.setItem(redirectFlag, 'true');
-                window.location.href = redirectUrl;
-            }, 6000);
-        } else {
-            console.log('Already redirected, skipping auto-redirect.');
-        }
-    }
-
     // --- Dynamic Year for Footer ---
     const currentYear = new Date().getFullYear();
     const yearSpan = document.getElementById('current-year');
@@ -35,24 +8,22 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // --- Navbar Scroll Effect & Mobile Menu ---
-    const navbar = document.querySelector('.navbar');
+    const mainHeader = document.querySelector('.main-header');
     const menuToggle = document.querySelector('.menu-toggle');
-    const navLinks = document.querySelector('.nav-links');
+    const mobileMenu = document.getElementById('main-menu');
 
     const handleScroll = () => {
         if (window.scrollY > 50) {
-            navbar.classList.add('scrolled');
-            document.body.classList.add('scrolling');
+            mainHeader.classList.add('scrolled');
         } else {
-            navbar.classList.remove('scrolled');
-            document.body.classList.remove('scrolling');
+            mainHeader.classList.remove('scrolled');
         }
     };
     window.addEventListener('scroll', handleScroll);
 
     // Mobile menu toggle
     menuToggle.addEventListener('click', () => {
-        navLinks.classList.toggle('active');
+        mobileMenu.classList.toggle('active');
         menuToggle.classList.toggle('active');
         const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true';
         menuToggle.setAttribute('aria-expanded', !isExpanded);
@@ -61,13 +32,32 @@ document.addEventListener('DOMContentLoaded', () => {
     // Close menu on link click (for mobile)
     document.querySelectorAll('.nav-link').forEach(link => {
         link.addEventListener('click', () => {
-            if (navLinks.classList.contains('active')) {
-                navLinks.classList.remove('active');
+            if (mobileMenu.classList.contains('active')) {
+                mobileMenu.classList.remove('active');
                 menuToggle.classList.remove('active');
                 menuToggle.setAttribute('aria-expanded', 'false');
             }
         });
     });
+
+    // --- Launch & Login Button Logic ---
+    const launchUrl = 'https://redfaceapp.netlify.app';
+    const launchButtons = document.querySelectorAll('.launch-btn');
+    const loginButton = document.getElementById('login-btn');
+
+    launchButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            window.location.href = launchUrl;
+        });
+    });
+
+    if (loginButton) {
+        loginButton.addEventListener('click', () => {
+            // Placeholder for login action
+            console.log('Login button clicked.');
+            window.location.href = 'https://redfaceapp.netlify.app/login'; // Example login path
+        });
+    }
 
     // --- Intersection Observer for Animations ---
     const fadeInElements = document.querySelectorAll('.fade-in, .slide-up');
@@ -88,28 +78,6 @@ document.addEventListener('DOMContentLoaded', () => {
     fadeInElements.forEach(element => {
         observer.observe(element);
     });
-
-    // --- Glass Card 3D Tilt Effect ---
-    const tiltElements = document.querySelectorAll('[data-tilt]');
-
-    const applyTiltEffect = (element) => {
-        element.addEventListener('mousemove', (e) => {
-            const rect = element.getBoundingClientRect();
-            const x = e.clientX - rect.left;
-            const y = e.clientY - rect.top;
-            const centerX = rect.width / 2;
-            const centerY = rect.height / 2;
-            const rotateX = ((centerY - y) / centerY) * 10; // Max 10 deg rotation
-            const rotateY = ((x - centerX) / centerX) * 10; // Max 10 deg rotation
-            element.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
-        });
-
-        element.addEventListener('mouseleave', () => {
-            element.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg)`;
-        });
-    };
-
-    tiltElements.forEach(applyTiltEffect);
 
     // --- Back to Top Button ---
     const backToTopBtn = document.getElementById('back-to-top');
@@ -160,22 +128,27 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // --- Dark Mode Toggle (optional but good practice) ---
+    // --- Dark/Light Mode Toggle ---
     const darkModeToggle = document.getElementById('dark-mode-toggle');
     const body = document.body;
 
     // Load saved mode from localStorage
     const savedMode = localStorage.getItem('redface-dark-mode');
-    if (savedMode === 'disabled') {
+    if (savedMode === 'light') {
         body.classList.add('light-mode');
+        darkModeToggle.innerHTML = '<i class="fas fa-moon"></i>';
+    } else {
+         darkModeToggle.innerHTML = '<i class="fas fa-sun"></i>';
     }
 
     darkModeToggle.addEventListener('click', () => {
         body.classList.toggle('light-mode');
         if (body.classList.contains('light-mode')) {
-            localStorage.setItem('redface-dark-mode', 'disabled');
+            localStorage.setItem('redface-dark-mode', 'light');
+            darkModeToggle.innerHTML = '<i class="fas fa-moon"></i>';
         } else {
-            localStorage.setItem('redface-dark-mode', 'enabled');
+            localStorage.setItem('redface-dark-mode', 'dark');
+            darkModeToggle.innerHTML = '<i class="fas fa-sun"></i>';
         }
     });
 

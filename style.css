@@ -93,7 +93,13 @@ nav {
 /* --- Hero Section --- */
 .hero {
     min-height: 100vh;
-    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    /* UPDATED: Added background image with gradient overlay */
+    background: 
+        linear-gradient(rgba(106, 17, 203, 0.85), rgba(37, 117, 252, 0.85)), 
+        url('images/landing-heropage.png');
+    background-size: cover; /* Ensures the image covers the entire section */
+    background-position: center center; /* Centers the image */
+    background-repeat: no-repeat; /* Prevents the image from repeating */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -103,26 +109,17 @@ nav {
     overflow: hidden;
 }
 
-.hero::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: url('https://www.transparenttextures.com/patterns/cubes.png');
-    opacity: 0.1;
-}
+/* REMOVED .hero::before pseudo-element as it's no longer needed */
 
 .hero h1 {
     display: flex;
-    align-items: flex-end; /* This aligns text to the bottom, creating the "dad and child" look */
+    align-items: flex-end;
     justify-content: center;
     flex-wrap: wrap; 
     gap: 0.25em;
     margin-bottom: 20px;
-    line-height: 1; /* Adjusted line-height for better alignment */
-    text-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    line-height: 1;
+    text-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
     color: #ffffff;
 }
 
@@ -135,13 +132,14 @@ nav {
 .tagline-text {
     font-size: clamp(2rem, 5vw, 3.5rem);
     font-weight: 400;
-    padding-bottom: 0.15em; /* Minor adjustment for perfect visual alignment */
+    padding-bottom: 0.15em;
 }
 
 .hero p {
     font-size: clamp(1rem, 2.5vw, 1.2rem);
     max-width: 700px;
     margin: 0 auto 40px;
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
 }
 
 .btn {

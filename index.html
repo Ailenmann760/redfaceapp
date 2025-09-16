@@ -4,193 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RedFace App - The Future of the Creator Economy</title>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
-
-        :root {
-            --primary-color: #6a11cb;
-            --secondary-color: #2575fc;
-            --accent-color: #ff007f;
-            --background-color: #121212;
-            --text-color: #ffffff;
-            --card-color: #1e1e1e;
-        }
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        body {
-            font-family: 'Poppins', sans-serif;
-            background-color: var(--background-color);
-            color: var(--text-color);
-            line-height: 1.6;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        header {
-            background: rgba(18, 18, 18, 0.8);
-            backdrop-filter: blur(10px);
-            padding: 20px 0;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-        }
-
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-size: 1.8em;
-            font-weight: 700;
-            color: var(--accent-color);
-        }
-
-        .nav-links {
-            display: flex;
-            list-style: none;
-        }
-
-        .nav-links li {
-            margin-left: 30px;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: var(--text-color);
-            font-weight: 600;
-            transition: color 0.3s ease;
-        }
-
-        .nav-links a:hover {
-            color: var(--accent-color);
-        }
-
-        .hero {
-            height: 100vh;
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            padding: 0 20px;
-            position: relative;
-        }
-        
-        .hero-content {
-            z-index: 1;
-        }
-
-        .hero h1 {
-            font-size: 4em;
-            margin-bottom: 20px;
-            line-height: 1.2;
-        }
-
-        .hero p {
-            font-size: 1.2em;
-            max-width: 700px;
-            margin: 0 auto 40px;
-        }
-
-        .btn {
-            display: inline-block;
-            padding: 15px 30px;
-            background-color: var(--accent-color);
-            color: var(--text-color);
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: 700;
-            transition: transform 0.3s ease, background-color 0.3s ease;
-            margin: 0 10px;
-        }
-
-        .btn:hover {
-            transform: translateY(-3px);
-            background-color: #ff3399;
-        }
-
-        .btn-secondary {
-            background-color: transparent;
-            border: 2px solid var(--accent-color);
-        }
-        
-        .btn-secondary:hover {
-             background-color: var(--accent-color);
-        }
-
-        section {
-            padding: 100px 0;
-        }
-        
-        .section-title {
-            text-align: center;
-            font-size: 2.5em;
-            margin-bottom: 60px;
-            color: var(--accent-color);
-        }
-
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-
-        .card {
-            background-color: var(--card-color);
-            padding: 40px;
-            border-radius: 15px;
-            text-align: center;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
-        }
-
-        .card h3 {
-            font-size: 1.5em;
-            margin-bottom: 15px;
-        }
-        
-        .icon {
-            font-size: 3em;
-            margin-bottom: 20px;
-            color: var(--accent-color);
-        }
-        
-        .web3-utility-section .card {
-            border-left: 5px solid var(--accent-color);
-        }
-
-        footer {
-            background-color: var(--card-color);
-            text-align: center;
-            padding: 40px 0;
-        }
-        
-        @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 3em;
-            }
-            .nav-links {
-                display: none;
-            }
-        }
-    </style>
-</head>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script> </head>
 <body>
 
     <header>
@@ -202,35 +17,48 @@
                 <li><a href="#web3">Web3 Utility</a></li>
                 <li><a href="#features">Features</a></li>
             </ul>
+            <button class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
         </nav>
+        <div class="mobile-nav">
+            <a href="#problem">The Problem</a>
+            <a href="#solution">The Solution</a>
+            <a href="#web3">Web3 Utility</a>
+            <a href="#features">Features</a>
+        </div>
     </header>
 
     <main>
         <section class="hero">
-            <div class="hero-content">
+            <div class="hero-content hidden">
                 <h1>The Future of the Creator Economy is Decentralized. The Future is RedFace.</h1>
-                <p>RedFace is a Web3-powered platform that dismantles the barriers of traditional social media. We empower creators with direct monetization, transparent governance, and true ownership, all powered by the Wagydog Meme Coin ($WAGY).</p>
-                <a href="#" class="btn">Launch App</a>
-                <a href="https://docs.google.com/document/d/1qmfbA13A5u29QXfY-9LaupK8RehpxD37/edit?usp=drivesdk&ouid=103868857290033039810&rtpof=true&sd=true" class="btn btn-secondary" target="_blank">Read Whitepaper</a>
-                <a href="https://Wagydog.com" class="btn btn-secondary" target="_blank">Explore Wagydog Project</a>
+                <p>RedFace is a Web3-powered platform that dismantles the barriers of traditional social media. We empower creators with direct monetization, transparent governance, and true ownership.</p>
+                <div class="hero-buttons">
+                    <a href="#" class="btn">Launch App</a>
+                    <a href="https://docs.google.com/document/d/1qmfbA13A5u29QXfY-9LaupK8RehpxD37/edit?usp=drivesdk&ouid=103868857290033039810&rtpof=true&sd=true" class="btn btn-secondary" target="_blank">Read Whitepaper</a>
+                    <a href="https://Wagydog.com" class="btn btn-secondary" target="_blank">Explore Wagydog</a>
+                </div>
             </div>
         </section>
 
         <section id="problem">
             <div class="container">
-                <h2 class="section-title">Is the Creator Economy Broken?</h2>
+                <h2 class="section-title hidden">Is the Creator Economy Broken?</h2>
                 <div class="grid">
-                    <div class="card">
+                    <div class="card hidden">
                         <div class="icon">💔</div>
                         <h3>Exorbitant Fees</h3>
                         <p>Web2 platforms can take up to 55% of your earnings. It's time for a change.</p>
                     </div>
-                    <div class="card">
+                    <div class="card hidden">
                         <div class="icon">👻</div>
                         <h3>Opaque Algorithms</h3>
                         <p>Your reach is controlled by algorithms you can't understand or influence.</p>
                     </div>
-                    <div class="card">
+                    <div class="card hidden">
                         <div class="icon">🚫</div>
                         <h3>Censorship & Risk</h3>
                         <p>Demonetization and censorship threaten your livelihood and creative freedom.</p>
@@ -238,73 +66,25 @@
                 </div>
             </div>
         </section>
-
-        <section id="solution" style="background-color: var(--card-color);">
-            <div class="container">
-                <h2 class="section-title">RedFace: A New Creator Era</h2>
-                <div class="grid">
-                    <div class="card">
-                        <h3>Direct Monetization</h3>
-                        <p>Go from creator to entrepreneur. With RedFace, you receive the vast majority of your earnings directly from your fans using the $WAGY token.</p>
-                    </div>
-                    <div class="card">
-                        <h3>Community Ownership</h3>
-                        <p>Your community is yours. Truly. Build direct, censorship-resistant relationships with your supporters on a decentralized infrastructure.</p>
-                    </div>
-                    <div class="card">
-                        <h3>Financial Inclusion for All</h3>
-                        <p>We are breaking down financial barriers. By using cryptocurrency, RedFace provides a global payment system, empowering creators everywhere.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
         
         <section id="web3" class="web3-utility-section">
             <div class="container">
-                <h2 class="section-title">Web3 Utility of the $WAGY Token</h2>
+                <h2 class="section-title hidden">Web3 Utility of the $WAGY Token</h2>
                  <div class="grid">
-                    <div class="card">
+                    <div class="card hidden">
                         <div class="icon">🔑</div>
                         <h3>For Fans</h3>
                         <p>The key to unlocking exclusive content, tipping your favorite creators, and being a part of the community.</p>
                     </div>
-                    <div class="card">
+                    <div class="card hidden">
                         <div class="icon">💰</div>
                         <h3>For Creators</h3>
                         <p>The way you earn, monetize, and build your independent creative business on a decentralized platform.</p>
                     </div>
-                    <div class="card">
+                    <div class="card hidden">
                         <div class="icon">🗳️</div>
                         <h3>For Everyone</h3>
                         <p>Your stake in the future of the platform, granting you rewards and a voice in governance through a DAO.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="features">
-            <div class="container">
-                <h2 class="section-title">The Tools for a Revolution</h2>
-                <div class="grid">
-                    <div class="card">
-                        <div class="icon">💖</div>
-                        <h3>Creator Subscriptions</h3>
-                        <p>Fans can subscribe to your exclusive content using $WAGY, creating a stable and predictable revenue stream.</p>
-                    </div>
-                    <div class="card">
-                        <div class="icon">🚀</div>
-                        <h3>Premium Services</h3>
-                        <p>Boost your content, run on-platform ads, and offer exclusive perks, all transacted in $WAGY.</p>
-                    </div>
-                    <div class="card">
-                        <div class="icon">🤝</div>
-                        <h3>Community Governance</h3>
-                        <p>As a $WAGY token holder, you have a voice. Participate in decisions that shape the future of the platform.</p>
-                    </div>
-                    <div class="card">
-                        <div class="icon">📱</div>
-                        <h3>Mobile-First Design</h3>
-                        <p>A clean, intuitive, and user-friendly experience designed for the next billion mobile-native users.</p>
                     </div>
                 </div>
             </div>
@@ -313,9 +93,9 @@
 
     <footer>
         <div class="container">
-            <p>&copy; 2024 RedFace App. All rights reserved.</p>
+            <p>&copy; 2025 RedFace App. All rights reserved.</p>
         </div>
     </footer>
-
+    <script src="script.js"></script>
 </body>
 </html>

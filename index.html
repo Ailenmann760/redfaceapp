@@ -3,249 +3,319 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RedFace - Connect. Own.</title>
+    <title>RedFace App - The Future of the Creator Economy</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
 
-    <meta name="description" content="RedFace is a social app that empowers you to connect and own your social experience. Launch the app and join the community.">
-    <meta name="keywords" content="social app, connect, community, redface, social network, ownership, blockchain, web3">
-    <meta name="author" content="RedFace Team">
+        :root {
+            --primary-color: #6a11cb;
+            --secondary-color: #2575fc;
+            --accent-color: #ff007f;
+            --background-color: #121212;
+            --text-color: #ffffff;
+            --card-color: #1e1e1e;
+        }
 
-    <meta property="og:title" content="RedFace - Connect. Own.">
-    <meta property="og:description" content="RedFace is a social app that empowers you to connect and own your social experience.">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://your-domain.com">
-    <meta property="og:image" content="./redfacelogo.png"> <meta property="og:image:alt" content="RedFace app logo">
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
 
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="RedFace - Connect. Own.">
-    <meta name="twitter:description" content="RedFace is a social app that empowers you to connect and own your social experience.">
-    <meta name="twitter:image" content="./redfacelogo.png"> <script type="application/ld+json">
-        {
-            "@context": "https://schema.org",
-            "@type": "WebSite",
-            "name": "RedFace",
-            "url": "https://your-domain.com",
-            "potentialAction": {
-                "@type": "SearchAction",
-                "target": "https://your-domain.com/?q={search_term_string}",
-                "query-input": "required name=search_term_string"
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background: rgba(18, 18, 18, 0.8);
+            backdrop-filter: blur(10px);
+            padding: 20px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8em;
+            font-weight: 700;
+            color: var(--accent-color);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 30px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-color);
+        }
+
+        .hero {
+            height: 100vh;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 20px;
+            position: relative;
+        }
+        
+        .hero-content {
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: 4em;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.2em;
+            max-width: 700px;
+            margin: 0 auto 40px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 15px 30px;
+            background-color: var(--accent-color);
+            color: var(--text-color);
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 700;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+            margin: 0 10px;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            background-color: #ff3399;
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            border: 2px solid var(--accent-color);
+        }
+        
+        .btn-secondary:hover {
+             background-color: var(--accent-color);
+        }
+
+        section {
+            padding: 100px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 60px;
+            color: var(--accent-color);
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background-color: var(--card-color);
+            padding: 40px;
+            border-radius: 15px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+
+        .card h3 {
+            font-size: 1.5em;
+            margin-bottom: 15px;
+        }
+        
+        .icon {
+            font-size: 3em;
+            margin-bottom: 20px;
+            color: var(--accent-color);
+        }
+        
+        .web3-utility-section .card {
+            border-left: 5px solid var(--accent-color);
+        }
+
+        footer {
+            background-color: var(--card-color);
+            text-align: center;
+            padding: 40px 0;
+        }
+        
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 3em;
+            }
+            .nav-links {
+                display: none;
             }
         }
-    </script>
-
-    <link rel="manifest" href="manifest.webmanifest">
-    <meta name="theme-color" content="#D90429">
-
-    <link rel="apple-touch-icon" sizes="180x180" href="./redfacelogo.png"> <link rel="icon" type="image/png" sizes="32x32" href="./redfacelogo.png"> <link rel="icon" type="image/png" sizes="16x16" href="./redfacelogo.png"> <link rel="mask-icon" href="./redfacelogo.png" color="#D90429"> <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="stylesheet" href="style.css">
+    </style>
 </head>
 <body>
-    <header class="main-header">
-        <nav class="top-nav" role="navigation" aria-label="Main navigation">
-            <a href="#" class="logo-container">
-                <img src="./redfacelogo.png" alt="RedFace Logo" class="logo">
-            </a>
-            <div class="header-actions">
-                <button id="dark-mode-toggle" aria-label="Toggle dark mode">
-                    <i class="fas fa-moon" aria-hidden="true"></i>
-                </button>
-            </div>
-            <button class="menu-toggle" aria-controls="main-menu" aria-expanded="false" aria-label="Toggle navigation menu">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
-            </button>
+
+    <header>
+        <nav class="container">
+            <div class="logo">RedFace</div>
+            <ul class="nav-links">
+                <li><a href="#problem">The Problem</a></li>
+                <li><a href="#solution">The Solution</a></li>
+                <li><a href="#web3">Web3 Utility</a></li>
+                <li><a href="#features">Features</a></li>
+            </ul>
         </nav>
-        <div class="mobile-menu-container" id="main-menu">
-            <a href="#about" class="nav-link">About</a>
-            <a href="#features" class="nav-link">Features</a>
-            <a href="#roadmap" class="nav-link">Roadmap</a>
-            <a href="#community" class="nav-link">Community</a>
-            <a href="#newsletter" class="nav-link">Newsletter</a>
-            <button class="launch-btn mobile-launch-btn">Launch App</button>
-        </div>
     </header>
 
     <main>
-        <section class="hero-section" id="hero">
+        <section class="hero">
             <div class="hero-content">
-                <h1 class="hero-slogan breathe">Connect. Own.</h1>
-                <div class="hero-buttons">
-                    <button id="launch-btn-hero" class="launch-btn hero-launch-btn">
-                        <span class="launch-text">Launch App</span>
-                    </button>
-                    <a href="#about" class="learn-more">
-                        <span>Learn More</span>
-                        <i class="fas fa-chevron-down"></i>
-                    </a>
-                </div>
+                <h1>The Future of the Creator Economy is Decentralized. The Future is RedFace.</h1>
+                <p>RedFace is a Web3-powered platform that dismantles the barriers of traditional social media. We empower creators with direct monetization, transparent governance, and true ownership, all powered by the Wagydog Meme Coin ($WAGY).</p>
+                <a href="#" class="btn">Launch App</a>
+                <a href="https://docs.google.com/document/d/1qmfbA13A5u29QXfY-9LaupK8RehpxD37/edit?usp=drivesdk&ouid=103868857290033039810&rtpof=true&sd=true" class="btn btn-secondary" target="_blank">Read Whitepaper</a>
+                <a href="https://Wagydog.com" class="btn btn-secondary" target="_blank">Explore Wagydog Project</a>
             </div>
         </section>
 
-        <section class="about-section fade-in" id="about">
+        <section id="problem">
             <div class="container">
-                <h2 class="section-title">About RedFace</h2>
-                <div class="about-content">
-                    <p>RedFace is a new-generation social app built on blockchain technology, a decentralized platform that empowers you with true ownership over your digital identity. We are shifting the paradigm from 'free' services that monetize your data to a transparent ecosystem where you are in complete control of your content and connections.</p>
-                    <p>Unlike traditional social networks, our unique value lies in a decentralized architecture that ensures your privacy and freedom. With features like content monetization via smart contracts, a built-in NFT marketplace, and secure wallet integration, RedFace is redefining what it means to be social in the digital age.</p>
-                </div>
-            </div>
-        </section>
-
-        <section class="features-section fade-in" id="features">
-            <div class="container">
-                <h2 class="section-title">Core Features</h2>
-                <div class="features-grid">
-                    <div class="feature-card slide-up">
-                        <div class="icon-circle">
-                            <i class="fas fa-shield-alt"></i>
-                        </div>
-                        <h3>Security & Transparency</h3>
-                        <p>Powered by blockchain, every interaction and transaction is secure, transparent, and immutable.</p>
+                <h2 class="section-title">Is the Creator Economy Broken?</h2>
+                <div class="grid">
+                    <div class="card">
+                        <div class="icon">💔</div>
+                        <h3>Exorbitant Fees</h3>
+                        <p>Web2 platforms can take up to 55% of your earnings. It's time for a change.</p>
                     </div>
-                    <div class="feature-card slide-up" style="--card-delay: 0.1s;">
-                        <div class="icon-circle">
-                            <i class="fas fa-bolt"></i>
-                        </div>
-                        <h3>Fast & Scalable Performance</h3>
-                        <p>Designed for speed, our network ensures smooth, lag-free performance even under heavy traffic.</p>
+                    <div class="card">
+                        <div class="icon">👻</div>
+                        <h3>Opaque Algorithms</h3>
+                        <p>Your reach is controlled by algorithms you can't understand or influence.</p>
                     </div>
-                    <div class="feature-card slide-up" style="--card-delay: 0.2s;">
-                        <div class="icon-circle">
-                            <i class="fas fa-globe-americas"></i>
-                        </div>
-                        <h3>Global Accessibility</h3>
-                        <p>Connect with a worldwide community, breaking down geographical barriers and fostering global connections.</p>
-                    </div>
-                    <div class="feature-card slide-up" style="--card-delay: 0.3s;">
-                        <div class="icon-circle">
-                            <i class="fas fa-lightbulb"></i>
-                        </div>
-                        <h3>Innovative UI/UX</h3>
-                        <p>A modern, intuitive interface that makes managing your decentralized identity and connections effortless.</p>
+                    <div class="card">
+                        <div class="icon">🚫</div>
+                        <h3>Censorship & Risk</h3>
+                        <p>Demonetization and censorship threaten your livelihood and creative freedom.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section class="beta-section fade-in" id="beta">
+        <section id="solution" style="background-color: var(--card-color);">
             <div class="container">
-                <h2 class="section-title">Beta Testing</h2>
-                <div class="beta-content">
-                    <p class="beta-highlight">Launching November 2025</p>
-                    <p>Be one of the first to experience the future of social media. We're inviting a select group of users to test RedFace and help us build the ultimate decentralized platform.</p>
-                    <button id="beta-btn" class="launch-btn cta-launch-btn">
-                        <span class="launch-text">Join the Beta</span>
-                    </button>
-                </div>
-            </div>
-        </section>
-
-        <section class="roadmap-section fade-in" id="roadmap">
-            <div class="container">
-                <h2 class="section-title">Roadmap</h2>
-                <div class="roadmap-timeline">
-                    <div class="timeline-item">
-                        <div class="timeline-dot"></div>
-                        <div class="timeline-content glass-card">
-                            <h3>Past Achievements</h3>
-                            <p>Concept & Research, Core Team Formation, Initial Whitepaper Development.</p>
-                        </div>
+                <h2 class="section-title">RedFace: A New Creator Era</h2>
+                <div class="grid">
+                    <div class="card">
+                        <h3>Direct Monetization</h3>
+                        <p>Go from creator to entrepreneur. With RedFace, you receive the vast majority of your earnings directly from your fans using the $WAGY token.</p>
                     </div>
-                    <div class="timeline-item">
-                        <div class="timeline-dot"></div>
-                        <div class="timeline-content glass-card">
-                            <h3>Beta Launch (Nov 2025)</h3>
-                            <p>First public release. Key features: Wallet Connect, Chat, NFT Marketplace, and limited content monetization.</p>
-                        </div>
+                    <div class="card">
+                        <h3>Community Ownership</h3>
+                        <p>Your community is yours. Truly. Build direct, censorship-resistant relationships with your supporters on a decentralized infrastructure.</p>
                     </div>
-                    <div class="timeline-item">
-                        <div class="timeline-dot"></div>
-                        <div class="timeline-content glass-card">
-                            <h3>Future Milestones</h3>
-                            <p>Expanding features to include Dating Zone, Public Square voice chat, full content monetization, and more.</p>
-                        </div>
+                    <div class="card">
+                        <h3>Financial Inclusion for All</h3>
+                        <p>We are breaking down financial barriers. By using cryptocurrency, RedFace provides a global payment system, empowering creators everywhere.</p>
                     </div>
                 </div>
             </div>
         </section>
-
-        <section class="organization-section fade-in" id="organization">
+        
+        <section id="web3" class="web3-utility-section">
             <div class="container">
-                <h2 class="section-title">Our Organization</h2>
-                <div class="org-content">
-                    <div class="org-card glass-card">
-                        <img src="./blackclaw.png" alt="Black Claw Logo" class="org-logo">
-                        <p>Black Claw is the software brand dedicated to building the RedFace app. We are also the creators of the **Wagydog Meme** project, committed to developing innovative and decentralized platforms for the future.</p>
+                <h2 class="section-title">Web3 Utility of the $WAGY Token</h2>
+                 <div class="grid">
+                    <div class="card">
+                        <div class="icon">🔑</div>
+                        <h3>For Fans</h3>
+                        <p>The key to unlocking exclusive content, tipping your favorite creators, and being a part of the community.</p>
                     </div>
-                </div>
-                            </div>
-        </section>
-
-        <section class="community-section fade-in" id="community">
-            <div class="container">
-                <h2 class="section-title">Join Our Community</h2>
-                <div class="socials-container">
-                    <a href="#" aria-label="Follow us on X/Twitter" class="social-link">
-                        <i class="fab fa-twitter"></i>
-                        <span>Twitter / X</span>
-                    </a>
-                    <a href="#" aria-label="Join our Telegram" class="social-link">
-                        <i class="fab fa-telegram-plane"></i>
-                        <span>Telegram</span>
-                    </a>
-                    <a href="#" aria-label="Join our Discord" class="social-link">
-                        <i class="fab fa-discord"></i>
-                        <span>Discord</span>
-                    </a>
-                    <a href="#" aria-label="Check out our GitHub" class="social-link">
-                        <i class="fab fa-github"></i>
-                        <span>GitHub</span>
-                    </a>
+                    <div class="card">
+                        <div class="icon">💰</div>
+                        <h3>For Creators</h3>
+                        <p>The way you earn, monetize, and build your independent creative business on a decentralized platform.</p>
+                    </div>
+                    <div class="card">
+                        <div class="icon">🗳️</div>
+                        <h3>For Everyone</h3>
+                        <p>Your stake in the future of the platform, granting you rewards and a voice in governance through a DAO.</p>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <section class="newsletter-section fade-in" id="newsletter">
+        <section id="features">
             <div class="container">
-                <h2 class="section-title">Stay Updated</h2>
-                <p>Subscribe to our newsletter for the latest updates and exclusive beta invitations.</p>
-                <form class="newsletter-form">
-                    <input type="email" placeholder="Enter your email" required>
-                    <button type="submit" class="launch-btn">Subscribe</button>
-                </form>
+                <h2 class="section-title">The Tools for a Revolution</h2>
+                <div class="grid">
+                    <div class="card">
+                        <div class="icon">💖</div>
+                        <h3>Creator Subscriptions</h3>
+                        <p>Fans can subscribe to your exclusive content using $WAGY, creating a stable and predictable revenue stream.</p>
+                    </div>
+                    <div class="card">
+                        <div class="icon">🚀</div>
+                        <h3>Premium Services</h3>
+                        <p>Boost your content, run on-platform ads, and offer exclusive perks, all transacted in $WAGY.</p>
+                    </div>
+                    <div class="card">
+                        <div class="icon">🤝</div>
+                        <h3>Community Governance</h3>
+                        <p>As a $WAGY token holder, you have a voice. Participate in decisions that shape the future of the platform.</p>
+                    </div>
+                    <div class="card">
+                        <div class="icon">📱</div>
+                        <h3>Mobile-First Design</h3>
+                        <p>A clean, intuitive, and user-friendly experience designed for the next billion mobile-native users.</p>
+                    </div>
+                </div>
             </div>
         </section>
     </main>
 
-    <footer class="site-footer">
-        <div class="container footer-content">
-            <div class="footer-left">
-                <p>&copy; RedFace 2025 – Powered by <a href="#organization">Black Claw</a></p>
-            </div>
-            <div class="footer-middle">
-                <h3>Quick Links</h3>
-                <ul>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#features">Features</a></li>
-                    <li><a href="#roadmap">Roadmap</a></li>
-                    <li><a href="#newsletter">Contact</a></li>
-                </ul>
-            </div>
-            <div class="footer-right">
-                <h3>Connect With Us</h3>
-                <div class="social-icons">
-                    <a href="#" aria-label="Follow us on Twitter"><i class="fab fa-twitter"></i></a>
-                    <a href="#" aria-label="Join our Telegram"><i class="fab fa-telegram-plane"></i></a>
-                    <a href="#" aria-label="Join our Discord"><i class="fab fa-discord"></i></a>
-                </div>
-            </div>
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 RedFace App. All rights reserved.</p>
         </div>
     </footer>
 
-    <script src="script.js"></script>
 </body>
 </html>

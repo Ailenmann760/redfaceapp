@@ -1,74 +1,37 @@
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', function() {
 
-    // --- Navbar & Mobile Menu ---
-    const mainHeader = document.querySelector('.main-header');
-    const menuToggle = document.querySelector('.menu-toggle');
-    const mobileMenu = document.getElementById('main-menu');
+    // --- Mobile Navigation (Hamburger Menu) ---
+    const hamburger = document.querySelector('.hamburger');
+    const mobileNav = document.querySelector('.mobile-nav');
 
-    menuToggle.addEventListener('click', () => {
-        mobileMenu.classList.toggle('active');
-        menuToggle.classList.toggle('active');
+    hamburger.addEventListener('click', function() {
+        this.classList.toggle('is-active');
+        mobileNav.classList.toggle('is-active');
     });
 
-    document.querySelectorAll('.nav-link').forEach(link => {
-        link.addEventListener('click', () => {
-            if (mobileMenu.classList.contains('active')) {
-                mobileMenu.classList.remove('active');
-                menuToggle.classList.remove('active');
-            }
-        });
+    // Close mobile menu when a link is clicked
+    mobileNav.addEventListener('click', function() {
+        hamburger.classList.remove('is-active');
+        this.classList.remove('is-active');
     });
 
-    // --- Launch Button Logic ---
-    const launchUrl = 'https://redfaceapp.netlify.app';
-    const launchButtons = document.querySelectorAll('.launch-btn');
-
-    launchButtons.forEach(button => {
-        button.addEventListener('click', () => {
-            window.location.href = launchUrl;
-        });
-    });
-
-    // --- Intersection Observer for Animations ---
-    const fadeInElements = document.querySelectorAll('.fade-in');
-    const options = {
-        threshold: 0.1
-    };
-
-    const observer = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
+    // --- Scroll Animation ---
+    // Create an Intersection Observer to watch for elements entering the viewport
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            // If the element is visible
             if (entry.isIntersecting) {
-                entry.target.classList.add('is-visible');
-                observer.unobserve(entry.target);
+                // Add the 'show' class to trigger the animation
+                entry.target.classList.add('show');
+            } else {
+                // Optional: remove the class to re-animate on scroll up
+                // entry.target.classList.remove('show'); 
             }
         });
-    }, options);
-
-    fadeInElements.forEach(element => {
-        observer.observe(element);
     });
 
-    // --- Dark/Light Mode Toggle ---
-    const darkModeToggle = document.getElementById('dark-mode-toggle');
-    const body = document.body;
-
-    const savedMode = localStorage.getItem('redface-dark-mode');
-    if (savedMode === 'dark') {
-        body.classList.add('dark-mode');
-        darkModeToggle.innerHTML = '<i class="fas fa-sun"></i>';
-    } else {
-        darkModeToggle.innerHTML = '<i class="fas fa-moon"></i>';
-    }
-
-    darkModeToggle.addEventListener('click', () => {
-        body.classList.toggle('dark-mode');
-        if (body.classList.contains('dark-mode')) {
-            localStorage.setItem('redface-dark-mode', 'dark');
-            darkModeToggle.innerHTML = '<i class="fas fa-sun"></i>';
-        } else {
-            localStorage.setItem('redface-dark-mode', 'light');
-            darkModeToggle.innerHTML = '<i class="fas fa-moon"></i>';
-        }
-    });
+    // Get all elements with the 'hidden' class and start observing them
+    const hiddenElements = document.querySelectorAll('.hidden');
+    hiddenElements.forEach((el) => observer.observe(el));
 
 });

@@ -92,24 +92,24 @@ nav {
 
 /* --- Hero Section --- */
 .hero {
-    min-height: 100vh;
-    /* UPDATED: Added background image with gradient overlay */
+    /* UPDATED: Adjusted min-height for less spacing */
+    min-height: 80vh; /* Reduced from 100vh */
+    /* UPDATED: Adjusted gradient opacity for better image visibility */
     background: 
-        linear-gradient(rgba(106, 17, 203, 0.85), rgba(37, 117, 252, 0.85)), 
+        linear-gradient(rgba(106, 17, 203, 0.6), rgba(37, 117, 252, 0.6)), /* Reduced opacity from 0.85 to 0.6 */
         url('images/landing-heropage.png');
-    background-size: cover; /* Ensures the image covers the entire section */
-    background-position: center center; /* Centers the image */
-    background-repeat: no-repeat; /* Prevents the image from repeating */
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
-    padding: 120px 20px 40px;
+    /* Adjusted padding-top to account for fixed header and reduce overall height */
+    padding: 100px 20px 80px; /* Reduced top padding, increased bottom slightly for content */
     position: relative;
     overflow: hidden;
 }
-
-/* REMOVED .hero::before pseudo-element as it's no longer needed */
 
 .hero h1 {
     display: flex;
@@ -117,7 +117,7 @@ nav {
     justify-content: center;
     flex-wrap: wrap; 
     gap: 0.25em;
-    margin-bottom: 20px;
+    margin-bottom: 15px; /* Slightly reduced margin */
     line-height: 1;
     text-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
     color: #ffffff;
@@ -138,7 +138,7 @@ nav {
 .hero p {
     font-size: clamp(1rem, 2.5vw, 1.2rem);
     max-width: 700px;
-    margin: 0 auto 40px;
+    margin: 0 auto 30px; /* Slightly reduced margin */
     text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
 }
 
@@ -298,5 +298,19 @@ footer {
         font-size: 1.2rem;
         padding: 15px 0;
         text-align: center;
+    }
+
+    /* Adjustments for mobile hero section */
+    .hero {
+        min-height: 70vh; /* Even shorter on mobile */
+        padding: 80px 15px 60px; /* Adjusted padding */
+    }
+
+    .hero h1 {
+        margin-bottom: 10px;
+    }
+
+    .hero p {
+        margin-bottom: 20px;
     }
 }

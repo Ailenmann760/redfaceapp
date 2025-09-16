@@ -92,11 +92,9 @@ nav {
 
 /* --- Hero Section --- */
 .hero {
-    /* UPDATED: Adjusted min-height for less spacing */
-    min-height: 80vh; /* Reduced from 100vh */
-    /* UPDATED: Adjusted gradient opacity for better image visibility */
+    min-height: 80vh; 
     background: 
-        linear-gradient(rgba(106, 17, 203, 0.6), rgba(37, 117, 252, 0.6)), /* Reduced opacity from 0.85 to 0.6 */
+        linear-gradient(rgba(106, 17, 203, 0.6), rgba(37, 117, 252, 0.6)), 
         url('images/landing-heropage.png');
     background-size: cover;
     background-position: center center;
@@ -105,8 +103,7 @@ nav {
     justify-content: center;
     align-items: center;
     text-align: center;
-    /* Adjusted padding-top to account for fixed header and reduce overall height */
-    padding: 100px 20px 80px; /* Reduced top padding, increased bottom slightly for content */
+    padding: 100px 20px 80px; 
     position: relative;
     overflow: hidden;
 }
@@ -117,7 +114,7 @@ nav {
     justify-content: center;
     flex-wrap: wrap; 
     gap: 0.25em;
-    margin-bottom: 15px; /* Slightly reduced margin */
+    margin-bottom: 15px;
     line-height: 1;
     text-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
     color: #ffffff;
@@ -138,7 +135,7 @@ nav {
 .hero p {
     font-size: clamp(1rem, 2.5vw, 1.2rem);
     max-width: 700px;
-    margin: 0 auto 30px; /* Slightly reduced margin */
+    margin: 0 auto 30px;
     text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
 }
 
@@ -300,17 +297,37 @@ footer {
         text-align: center;
     }
 
-    /* Adjustments for mobile hero section */
+    /* ==== UPDATED MOBILE HERO STYLES ==== */
     .hero {
-        min-height: 70vh; /* Even shorter on mobile */
-        padding: 80px 15px 60px; /* Adjusted padding */
+        min-height: auto; /* Allow height to be determined by content */
+        padding: 120px 20px 60px; /* Adjusted padding for better fit */
     }
 
+    /* Make headline flex-direction column to stack vertically */
     .hero h1 {
-        margin-bottom: 10px;
+        flex-direction: column;
+        align-items: center; /* Center align the stacked text */
+        gap: 0; /* Remove gap for stacked elements */
+        line-height: 1.2; /* Adjust line-height for stacked text */
+    }
+    
+    /* Drastically reduce font sizes for mobile */
+    .redface-text {
+        font-size: 3.5rem; /* Reduced from 7rem */
+    }
+
+    .tagline-text {
+        font-size: 1.8rem; /* Reduced from 3.5rem */
     }
 
     .hero p {
-        margin-bottom: 20px;
+        font-size: 0.95rem; /* Reduced paragraph font size */
+        margin-bottom: 30px; /* Ensure space for buttons */
+        line-height: 1.6;
+    }
+
+    .btn {
+        padding: 12px 28px;
+        font-size: 0.9rem;
     }
 }

@@ -116,34 +116,26 @@ nav {
 
 .hero h1 {
     display: flex;
-    align-items: baseline;
+    align-items: flex-end; /* This aligns text to the bottom, creating the "dad and child" look */
     justify-content: center;
-    flex-wrap: wrap; /* Allows text to wrap on very small screens */
-    gap: 0.25em; /* Adds a small space between the words */
+    flex-wrap: wrap; 
+    gap: 0.25em;
     margin-bottom: 20px;
-    line-height: 1.2;
+    line-height: 1; /* Adjusted line-height for better alignment */
     text-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    color: #ffffff; /* Sets the default color for h1 to white */
+    color: #ffffff;
 }
 
-/* NEW: Style for REDFACE text */
 .redface-text {
-    font-size: clamp(4rem, 10vw, 7rem); /* Made bigger */
+    font-size: clamp(4rem, 10vw, 7rem);
     font-weight: 700;
-    color: var(--accent-color); /* Uses the pink/red color */
+    color: var(--accent-color);
 }
 
-/* NEW: Style and animation for typewriter text */
-.typewriter-text {
-    font-size: clamp(2rem, 5vw, 3.5rem); /* Smaller than REDFACE */
+.tagline-text {
+    font-size: clamp(2rem, 5vw, 3.5rem);
     font-weight: 400;
-    position: relative;
-    overflow: hidden; /* Hides the text until animation reveals it */
-    white-space: nowrap; /* Prevents text from wrapping */
-    border-right: .15em solid var(--accent-color); /* The blinking cursor */
-    animation: 
-        typing 2s steps(13, end) forwards,
-        blink-caret .75s step-end infinite;
+    padding-bottom: 0.15em; /* Minor adjustment for perfect visual alignment */
 }
 
 .hero p {
@@ -151,18 +143,6 @@ nav {
     max-width: 700px;
     margin: 0 auto 40px;
 }
-
-/* NEW: Keyframe animations for the typewriter effect */
-@keyframes typing {
-    from { width: 0 }
-    to { width: 100% }
-}
-
-@keyframes blink-caret {
-    from, to { border-color: transparent }
-    50% { border-color: var(--accent-color) }
-}
-
 
 .btn {
     display: inline-block;

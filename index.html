@@ -11,22 +11,44 @@
 
     <header>
         <nav class="container">
-            <div class="logo">RedFace</div>
-            <ul class="nav-links">
-                <li><a href="#problem">How it works</a></li> 
-                <li><a href="#solution">About Us</a></li>    
-                <li><a href="#web3">Contact</a></li>         
-            </ul>
-            <button class="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
+            <div class="header-left">
+                <div class="logo">
+                    <span class="logo-icon">R</span> RedFace
+                </div>
+                <ul class="nav-links">
+                    <li><a href="#portfolio">Portfolio</a></li>
+                    <li><a href="#mint">Mint</a></li>
+                    <li><a href="#redeem">Redeem</a></li>
+                    <li><a href="#stake">Stake</a></li>
+                    <li><a href="#bridge">Bridge</a></li>
+                    <li><a href="#metrics">Metrics</a></li>
+                    <li><a href="#more">More <i class="fas fa-chevron-down"></i></a></li> </ul>
+            </div>
+            
+            <div class="header-right">
+                <div class="header-info">
+                    <span>APY <span class="value">8.6%</span></span>
+                    <span>TVL <span class="value">$2.3M</span></span>
+                </div>
+                <div class="header-badge">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Binance_Smart_Chain_logo.svg/1024px-Binance_Smart_Chain_logo.svg.png" alt="BSC Icon">
+                    BSC
+                </div>
+                <button class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
         </nav>
         <div class="mobile-nav">
-            <a href="#problem">How it works</a>
-            <a href="#solution">About Us</a>
-            <a href="#web3">Contact</a>
+            <a href="#portfolio">Portfolio</a>
+            <a href="#mint">Mint</a>
+            <a href="#redeem">Redeem</a>
+            <a href="#stake">Stake</a>
+            <a href="#bridge">Bridge</a>
+            <a href="#metrics">Metrics</a>
+            <a href="#more">More</a>
         </div>
     </header>
 
@@ -34,11 +56,11 @@
         <section class="hero">
             <div class="container hero-content-wrapper">
                 <div class="hero-content hidden">
-                    <h1>REDFACE</h1>
-                    <p>RedFace is a Web3-powered platform that dismantles the barriers of traditional social media. We empower creators with direct monetization, transparent governance, and true ownership.</p>
+                    <h1>Welcome to RedFace Dashboard</h1>
+                    <p>Manage your assets, explore staking opportunities, and participate in the decentralized creator economy.</p>
                     <div class="hero-buttons">
                         <a href="#" class="btn primary-btn">Launch App</a>
-                        <a href="https://docs.google.com/document/d/1qmfbA13A5u29QXfY-9LaupK8RehpxD37/edit?usp=drivesdk&ouid=103868857290033039810&rtpof=true&sd=true" class="btn secondary-btn" target="_blank">Read Doc</a>
+                        <a href="https://docs.google.com/document/d/1qmfbA13A5u29QXfY-9LaupK8RehpxD37/edit?usp=drivesdk&ouid=103868857290033039810&rtpof=true&sd=true" class="btn secondary-btn" target="_blank">Read Docs</a>
                     </div>
                 </div>
             </div>
@@ -46,22 +68,136 @@
 
         <section id="problem">
             <div class="container">
-                <h2 class="section-title hidden">Is the Creator Economy Broken?</h2>
+                <h2 class="section-title hidden">Vaults</h2>
                 <div class="grid">
                     <div class="card hidden">
-                        <div class="icon">💔</div>
-                        <h3>Exorbitant Fees</h3>
-                        <p>Web2 platforms can take up to 55% of your earnings. It's time for a change.</p>
+                        <div class="card-header">
+                            <h3 class="card-title">XRWAL</h3>
+                            <span class="tag">Sepolia</span>
+                        </div>
+                        <div class="card-info">
+                            <div class="card-row">
+                                <span>Pool Share <i class="info-icon fas fa-info-circle"></i></span>
+                                <span class="value">0.00%</span>
+                            </div>
+                            <div class="card-row">
+                                <span>Lock Time <i class="info-icon fas fa-info-circle"></i></span>
+                                <span class="value">48 Hours</span>
+                            </div>
+                            <div class="card-row">
+                                <span>Stake Fee <i class="info-icon fas fa-info-circle"></i></span>
+                                <span class="value">0%</span>
+                            </div>
+                        </div>
+                        <div class="card-balance">
+                            <label>Balance</label>
+                            <span class="card-balance-value">0.0000 XRWAL</span>
+                        </div>
+                        <a href="#" class="btn primary-btn">View Vault</a>
                     </div>
+
                     <div class="card hidden">
-                        <div class="icon">👻</div>
-                        <h3>Opaque Algorithms</h3>
-                        <p>Your reach is controlled by algorithms you can't understand or influence.</p>
+                        <div class="card-header">
+                            <h3 class="card-title">LsGOLD</h3>
+                            <span class="tag">Sepolia</span>
+                        </div>
+                        <div class="card-info">
+                            <div class="card-row">
+                                <span>Gold Price <i class="info-icon fas fa-info-circle"></i></span>
+                                <span class="value">$1.00</span>
+                            </div>
+                            <div class="card-row">
+                                <span>Pool Share <i class="info-icon fas fa-info-circle"></i></span>
+                                <span class="value">0.00%</span>
+                            </div>
+                            <div class="card-row">
+                                <span>Stake Fee <i class="info-icon fas fa-info-circle"></i></span>
+                                <span class="value">0%</span>
+                            </div>
+                        </div>
+                        <div class="card-balance">
+                            <label>Balance</label>
+                            <span class="card-balance-value">0.0000 LsGOLD</span>
+                        </div>
+                        <a href="#" class="btn primary-btn">View Vault</a>
                     </div>
+
                     <div class="card hidden">
-                        <div class="icon">🚫</div>
-                        <h3>Censorship & Risk</h3>
-                        <p>Demonetization and censorship threaten your livelihood and creative freedom.</p>
+                        <div class="card-header">
+                            <h3 class="card-title">LsUSRE</h3>
+                            <span class="tag">Sepolia</span>
+                        </div>
+                        <div class="card-info">
+                            <div class="card-row">
+                                <span>US Real Estate Price <i class="info-icon fas fa-info-circle"></i></span>
+                                <span class="value">$1.00</span>
+                            </div>
+                            <div class="card-row">
+                                <span>Pool Share <i class="info-icon fas fa-info-circle"></i></span>
+                                <span class="value">0.00%</span>
+                            </div>
+                            <div class="card-row">
+                                <span>Stake Fee <i class="info-icon fas fa-info-circle"></i></span>
+                                <span class="value">0%</span>
+                            </div>
+                        </div>
+                        <div class="card-balance">
+                            <label>Balance</label>
+                            <span class="card-balance-value">0.0000 LsUSRE</span>
+                        </div>
+                        <a href="#" class="btn primary-btn">View Vault</a>
+                    </div>
+
+                    <div class="card hidden">
+                        <div class="card-header">
+                            <h3 class="card-title">LsSP500</h3>
+                            <span class="tag">Sepolia</span>
+                        </div>
+                        <div class="card-info">
+                             <div class="card-row">
+                                <span>S&P 500 Price <i class="info-icon fas fa-info-circle"></i></span>
+                                <span class="value">$1.00</span>
+                            </div>
+                            <div class="card-row">
+                                <span>Pool Share <i class="info-icon fas fa-info-circle"></i></span>
+                                <span class="value">0.00%</span>
+                            </div>
+                            <div class="card-row">
+                                <span>Stake Fee <i class="info-icon fas fa-info-circle"></i></span>
+                                <span class="value">0%</span>
+                            </div>
+                        </div>
+                        <div class="card-balance">
+                            <label>Balance</label>
+                            <span class="card-balance-value">0.0000 LsSP500</span>
+                        </div>
+                        <a href="#" class="btn primary-btn">View Vault</a>
+                    </div>
+
+                    <div class="card hidden">
+                        <div class="card-header">
+                            <h3 class="card-title">LsUSAI</h3>
+                            <span class="tag">Sepolia</span>
+                        </div>
+                        <div class="card-info">
+                             <div class="card-row">
+                                <span>US AI Price <i class="info-icon fas fa-info-circle"></i></span>
+                                <span class="value">$1.00</span>
+                            </div>
+                            <div class="card-row">
+                                <span>Pool Share <i class="info-icon fas fa-info-circle"></i></span>
+                                <span class="value">0.00%</span>
+                            </div>
+                            <div class="card-row">
+                                <span>Stake Fee <i class="info-icon fas fa-info-circle"></i></span>
+                                <span class="value">0%</span>
+                            </div>
+                        </div>
+                        <div class="card-balance">
+                            <label>Balance</label>
+                            <span class="card-balance-value">0.0000 LsUSAI</span>
+                        </div>
+                        <a href="#" class="btn primary-btn">View Vault</a>
                     </div>
                 </div>
             </div>
@@ -69,22 +205,31 @@
         
         <section id="web3" class="web3-utility-section">
             <div class="container">
-                <h2 class="section-title hidden">Web3 Utility of the $WAGY Token</h2>
+                <h2 class="section-title hidden">RedFace Ecosystem Features</h2>
+                 <p class="hidden" style="max-width: 800px; margin: 0 auto 50px auto; text-align: center; color: var(--text-secondary);">
+                    Explore how RedFace empowers creators and users with true ownership and transparent systems.
+                 </p>
                  <div class="grid">
                     <div class="card hidden">
-                        <div class="icon">🔑</div>
-                        <h3>For Fans</h3>
-                        <p>The key to unlocking exclusive content, tipping your favorite creators, and being a part of the community.</p>
+                        <div class="card-header">
+                            <h3 class="card-title">Fan Engagement</h3>
+                        </div>
+                        <p style="color: var(--text-secondary);">The key to unlocking exclusive content, tipping your favorite creators, and being a part of the community.</p>
+                        <a href="#" class="btn secondary-btn" style="margin-top: auto;">Learn More</a>
                     </div>
                     <div class="card hidden">
-                        <div class="icon">💰</div>
-                        <h3>For Creators</h3>
-                        <p>The way you earn, monetize, and build your independent creative business on a decentralized platform.</p>
+                        <div class="card-header">
+                            <h3 class="card-title">Creator Monetization</h3>
+                        </div>
+                        <p style="color: var(--text-secondary);">The way you earn, monetize, and build your independent creative business on a decentralized platform.</p>
+                        <a href="#" class="btn secondary-btn" style="margin-top: auto;">Get Started</a>
                     </div>
                     <div class="card hidden">
-                        <div class="icon">🗳️</div>
-                        <h3>For Everyone</h3>
-                        <p>Your stake in the future of the platform, granting you rewards and a voice in governance through a DAO.</p>
+                        <div class="card-header">
+                            <h3 class="card-title">DAO Governance</h3>
+                        </div>
+                        <p style="color: var(--text-secondary);">Your stake in the future of the platform, granting you rewards and a voice in governance through a DAO.</p>
+                        <a href="#" class="btn secondary-btn" style="margin-top: auto;">Join DAO</a>
                     </div>
                 </div>
             </div>

@@ -178,6 +178,16 @@ section {
     padding: 100px 0;
 }
 
+/* ==== UPDATED PROBLEM SECTION STYLES ==== */
+#problem {
+    background: 
+        linear-gradient(rgba(13, 12, 34, 0.9), rgba(13, 12, 34, 0.9)), /* Dark overlay for readability */
+        url('Images/problem.png');
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed; /* Parallax effect */
+}
+
 .section-title {
     text-align: center;
     font-size: clamp(2rem, 4vw, 2.8rem);
@@ -262,6 +272,10 @@ footer {
 
 /* --- Responsive Design --- */
 @media (max-width: 768px) {
+    #problem {
+        background-attachment: scroll; /* Disable parallax on mobile for performance */
+    }
+
     .nav-links {
         display: none;
     }
@@ -332,18 +346,17 @@ footer {
         line-height: 1.6;
     }
 
-    /* UPDATED: Styles for button layout and size on mobile */
     .hero-buttons {
-        flex-direction: column; /* Stack buttons vertically */
-        align-items: center; /* Center them horizontally */
-        gap: 12px; /* Space between the stacked buttons */
-        width: 100%; /* Ensure the container takes full width */
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+        width: 100%;
     }
 
     .btn {
-        padding: 10px 24px; /* Further reduced padding */
-        font-size: 0.85rem; /* Further reduced font size */
-        width: 80%; /* Make buttons take up a consistent width */
-        max-width: 280px; /* But not too wide on larger mobile screens */
+        padding: 10px 24px;
+        font-size: 0.85rem;
+        width: 80%;
+        max-width: 280px;
     }
 }

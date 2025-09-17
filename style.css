@@ -1,16 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
 :root {
-    --primary-bg: #f0f2f5;
-    --secondary-bg: #ffffff;
-    --header-bg: #ffffff;
-    --text-primary: #333333;
-    --text-secondary: #666666;
-    --accent-blue: #007bff;
-    --border-color: #e0e0e0;
-    --shadow-light: rgba(0, 0, 0, 0.05);
-    --shadow-medium: rgba(0, 0, 0, 0.1);
-    --hover-bg-light: #f8f9fa;
+    /* New "Glassmorphism" Dark Palette */
+    --card-bg: rgba(255, 255, 255, 0.08); /* Semi-transparent white for cards */
+    --header-bg: rgba(10, 10, 20, 0.7);   /* Darker, semi-transparent for header */
+    --text-primary: #f0f0f0;            /* Light grey for main text */
+    --text-secondary: #a0a0a0;         /* Medium grey for secondary text */
+    --accent-blue: #007bff;            /* Bright blue for accents */
+    --border-color: rgba(255, 255, 255, 0.2); /* Subtle white border */
+    --shadow-light: rgba(0, 0, 0, 0.1);
+    --shadow-medium: rgba(0, 0, 0, 0.2);
+    --btn-primary-bg: #f0f0f0;            /* White/light grey for primary button */
+    --btn-primary-text: #111111;         /* Dark text for primary button */
 }
 
 * {
@@ -25,7 +26,11 @@ html {
 
 body {
     font-family: 'Poppins', sans-serif;
-    background-color: var(--primary-bg);
+    /* Textured dark background */
+    background-image: linear-gradient(rgba(10, 10, 20, 0.8), rgba(10, 10, 20, 0.95)), url('https://images.pexels.com/photos/129731/pexels-photo-129731.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
     color: var(--text-primary);
     line-height: 1.6;
     overflow-x: hidden;
@@ -45,7 +50,7 @@ header {
     z-index: 1000;
     padding: 15px 0;
     background: var(--header-bg);
-    box-shadow: 0 2px 10px var(--shadow-light);
+    backdrop-filter: blur(10px); /* Glass effect for header */
     border-bottom: 1px solid var(--border-color);
 }
 
@@ -91,9 +96,7 @@ nav {
     text-decoration: none;
     color: var(--text-secondary);
     font-weight: 500;
-    position: relative;
     transition: color 0.2s ease;
-    padding: 8px 0;
 }
 
 .nav-links a:hover {
@@ -115,31 +118,33 @@ nav {
 
 .btn:hover {
     transform: translateY(-2px);
-    box-shadow: 0 5px 15px var(--shadow-medium);
 }
 
 .primary-btn {
-    background-color: var(--accent-blue);
-    color: #ffffff;
-    border-color: var(--accent-blue);
+    background-color: var(--btn-primary-bg);
+    color: var(--btn-primary-text);
+    border-color: var(--btn-primary-bg);
+}
+.primary-btn:hover {
+    box-shadow: 0 5px 15px rgba(240, 240, 240, 0.2);
 }
 
 .secondary-btn {
-    background-color: var(--secondary-bg);
+    background-color: transparent;
     color: var(--text-primary);
     border: 1px solid var(--border-color);
 }
 
 .secondary-btn:hover {
-    background-color: var(--hover-bg-light);
-    border-color: #ccc;
+    background-color: var(--card-bg);
+    border-color: #fff;
 }
 
 
 /* --- Hero Section --- */
 .hero {
     min-height: 80vh;
-    background: var(--primary-bg);
+    background: none; /* Removed background from hero, relies on body bg */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -178,12 +183,14 @@ nav {
 /* --- General Section Styles --- */
 section {
     padding: 80px 0;
+    border-bottom: 1px solid var(--border-color);
+}
+section:last-of-type {
+    border-bottom: none;
 }
 
 .alternate-bg {
-    background-color: var(--secondary-bg);
-    border-top: 1px solid var(--border-color);
-    border-bottom: 1px solid var(--border-color);
+    background-color: rgba(0,0,0,0.1); /* Subtle dark overlay for alternate sections */
 }
 
 .section-title {
@@ -200,6 +207,15 @@ section {
     max-width: 700px;
     margin: 0 auto 50px auto;
     color: var(--text-secondary);
+}
+
+/* --- General Card & Glassmorphism Styles --- */
+.card, .hero-content-wrapper, .token-card, .faq-item {
+    background: var(--card-bg);
+    backdrop-filter: blur(12px);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
 }
 
 /* --- About Section --- */
@@ -228,18 +244,15 @@ section {
     gap: 25px;
 }
 
-.card {
-    background: var(--secondary-bg);
+.features-grid .card {
     padding: 30px;
-    border-radius: 12px;
     text-align: center;
-    border: 1px solid var(--border-color);
     transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .features-grid .card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 8px 25px var(--shadow-light);
+    box-shadow: 0 8px 40px 0 rgba(0, 0, 0, 0.4);
 }
 
 .card-icon {
@@ -265,10 +278,7 @@ section {
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 }
 .token-card {
-    background-color: var(--primary-bg);
     padding: 25px;
-    border-radius: 12px;
-    border: 1px solid var(--border-color);
 }
 .token-card h4 {
     font-size: 1.2em;
@@ -303,6 +313,7 @@ section {
     align-items: center;
     justify-content: center;
     margin: 0 auto 20px auto;
+    border: 2px solid var(--border-color);
 }
 .step-card h4 {
     font-size: 1.2em;
@@ -325,9 +336,6 @@ section {
     margin: 0 auto;
 }
 .faq-item {
-    background-color: var(--primary-bg);
-    border: 1px solid var(--border-color);
-    border-radius: 8px;
     margin-bottom: 10px;
 }
 .faq-question {
@@ -359,6 +367,9 @@ section {
 .faq-item.active .faq-question i {
     transform: rotate(180deg);
 }
+.faq-item.active {
+    border-color: var(--accent-blue);
+}
 
 
 /* --- Community Section --- */
@@ -369,7 +380,7 @@ section {
     flex-wrap: wrap;
 }
 .social-link {
-    background-color: var(--secondary-bg);
+    background-color: var(--card-bg);
     border: 1px solid var(--border-color);
     padding: 15px 30px;
     border-radius: 8px;
@@ -381,9 +392,9 @@ section {
 }
 .social-link:hover {
     transform: translateY(-3px);
-    box-shadow: 0 5px 15px var(--shadow-light);
     border-color: var(--accent-blue);
     color: var(--accent-blue);
+    background-color: rgba(0, 123, 255, 0.1);
 }
 .social-link i {
     margin-right: 10px;
@@ -391,7 +402,8 @@ section {
 
 /* --- Footer --- */
 footer {
-    background-color: var(--secondary-bg);
+    background-color: rgba(10, 10, 20, 0.7);
+    backdrop-filter: blur(10px);
     padding-top: 60px;
     border-top: 1px solid var(--border-color);
 }
@@ -441,26 +453,9 @@ footer {
 }
 
 /* --- Mobile Navigation --- */
-.hamburger {
-    display: none;
-    background: none;
-    border: none;
-    cursor: pointer;
-    z-index: 1001;
-}
-
-.hamburger span {
-    display: block;
-    width: 25px;
-    height: 3px;
-    margin: 5px 0;
-    background-color: var(--text-primary);
-    transition: all 0.3s ease;
-}
-
-.mobile-nav {
-    display: none;
-}
+.hamburger { display: none; background: none; border: none; cursor: pointer; z-index: 1001; }
+.hamburger span { display: block; width: 25px; height: 3px; margin: 5px 0; background-color: var(--text-primary); transition: all 0.3s ease; }
+.mobile-nav { display: none; }
 
 /* --- Responsive Design --- */
 @media (max-width: 768px) {
@@ -480,47 +475,21 @@ footer {
         left: 0;
         width: 100%;
         background: var(--header-bg);
+        backdrop-filter: blur(10px);
         padding: 15px;
         transform: translateX(-100%);
         transition: transform 0.3s ease-in-out;
-        box-shadow: 0 5px 15px var(--shadow-medium);
     }
 
     .mobile-nav.is-active { transform: translateX(0); }
     
-    .mobile-nav a {
-        color: var(--text-primary);
-        text-decoration: none;
-        font-size: 1.1rem;
-        padding: 12px 0;
-        text-align: center;
-        border-bottom: 1px solid var(--border-color);
-    }
+    .mobile-nav a { color: var(--text-primary); text-decoration: none; font-size: 1.1rem; padding: 12px 0; text-align: center; border-bottom: 1px solid var(--border-color); }
     .mobile-nav a:last-child { border-bottom: none; }
 
-    .hero {
-        padding: 60px 10px;
-    }
-
-    .about-section {
-        flex-direction: column;
-    }
-
-    .steps-container {
-        flex-direction: column;
-        align-items: center;
-    }
-    .step-arrow {
-        transform: rotate(90deg);
-        margin: 10px 0;
-    }
-
-    .section-title, .about-text .section-title {
-        text-align: center;
-    }
-
-    .footer-container {
-        flex-direction: column;
-        text-align: center;
-    }
+    .hero { padding: 60px 10px; }
+    .about-section { flex-direction: column; }
+    .steps-container { flex-direction: column; align-items: center; }
+    .step-arrow { transform: rotate(90deg); margin: 10px 0; }
+    .section-title, .about-text .section-title { text-align: center; }
+    .footer-container { flex-direction: column; text-align: center; }
 }

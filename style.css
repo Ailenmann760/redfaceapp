@@ -1,13 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
 
 :root {
-    --primary-color: #6a11cb;
-    --secondary-color: #2575fc;
-    --accent-color: #8b0000; /* UPDATED: Dark Oxblood Color */
-    --background-color: #0d0c22;
-    --text-color: #e0e0e0;
-    --card-bg-color: rgba(255, 255, 255, 0.05);
-    --border-color: rgba(255, 255, 255, 0.2);
+    /* New color palette inspired by the Campfire screenshot */
+    --primary-bg-color: #1a1a2e; /* Darker background */
+    --secondary-bg-color: #2e3b55; /* Slightly lighter for cards/elements */
+    --text-light: #e0e0e0;
+    --text-dark: #b0b0b0;
+    --accent-blue: #4a90e2; /* Blue from the Campfire title box */
+    --accent-green: #50e3c2; /* Greenish hint if needed, for now stick to blue */
+    --button-bg-primary: #4a90e2; /* Blue button background */
+    --button-border-primary: #4a90e2;
+    --button-text-primary: #ffffff;
+    --header-bg: rgba(26, 26, 46, 0.8); /* Semi-transparent header */
 }
 
 * {
@@ -18,8 +22,8 @@
 
 body {
     font-family: 'Poppins', sans-serif;
-    background-color: var(--background-color);
-    color: var(--text-color);
+    background-color: var(--primary-bg-color);
+    color: var(--text-light);
     line-height: 1.7;
     overflow-x: hidden;
 }
@@ -37,9 +41,9 @@ header {
     top: 0;
     z-index: 1000;
     padding: 20px 0;
-    background: rgba(13, 12, 34, 0.5);
-    backdrop-filter: blur(10px);
-    border-bottom: 1px solid var(--border-color);
+    background: var(--header-bg); /* Use new header background */
+    backdrop-filter: blur(8px); /* Slightly less blur */
+    border-bottom: none; /* Remove border for cleaner look */
 }
 
 nav {
@@ -49,26 +53,33 @@ nav {
 }
 
 .logo {
-    font-size: 1.8em;
-    font-weight: 700;
-    color: var(--accent-color); /* Applied here */
+    font-size: 1.5em; /* Slightly smaller logo */
+    font-weight: 600; /* Less bold */
+    color: var(--text-light); /* White/light text for logo */
+    opacity: 0.8; /* Subtle opacity */
+    transition: opacity 0.3s ease;
+}
+.logo:hover {
+    opacity: 1;
 }
 
 .nav-links {
     display: flex;
     list-style: none;
+    gap: 30px; /* Use gap for spacing instead of margin-left */
 }
 
 .nav-links li {
-    margin-left: 40px;
+    margin-left: 0; /* Reset */
 }
 
 .nav-links a {
     text-decoration: none;
-    color: var(--text-color);
-    font-weight: 600;
+    color: var(--text-dark); /* Darker text for nav links */
+    font-weight: 400; /* Lighter font weight */
     position: relative;
     transition: color 0.3s ease;
+    padding: 5px 0; /* Add padding for click area */
 }
 
 .nav-links a::after {
@@ -76,14 +87,15 @@ nav {
     position: absolute;
     width: 0;
     height: 2px;
-    bottom: -5px;
-    left: 0;
-    background-color: var(--accent-color); /* Applied here */
+    bottom: 0px; /* Adjusted position */
+    left: 50%; /* Center the underline */
+    transform: translateX(-50%); /* Center the underline */
+    background-color: var(--accent-blue); /* Blue underline */
     transition: width 0.3s ease;
 }
 
 .nav-links a:hover {
-    color: var(--accent-color); /* Applied here */
+    color: var(--text-light); /* Lighter on hover */
 }
 
 .nav-links a:hover::after {
@@ -92,86 +104,99 @@ nav {
 
 /* --- Hero Section --- */
 .hero {
-    min-height: 80vh; 
+    min-height: 100vh; /* Restore full viewport height for hero */
     background: 
-        linear-gradient(rgba(106, 17, 203, 0.6), rgba(37, 117, 252, 0.6)), 
-        url('images/landing-heropage.png');
+        linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.7)), /* Darker, subtle overlay */
+        url('images/landing-heropage.png'); /* Assuming this is your campfire image */
     background-size: cover;
-    background-position: center center;
+    background-position: center bottom; /* Adjusted to show bottom of image more, like screenshot */
     background-repeat: no-repeat;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    padding: 100px 20px 80px; 
+    justify-content: flex-start; /* Align content to the left */
+    align-items: center; /* Center content vertically */
+    text-align: left; /* Align text to the left */
+    padding: 0 40px; /* Adjust padding for spacing */
     position: relative;
     overflow: hidden;
 }
 
-.hero h1 {
+.hero-content-wrapper { /* New wrapper for content block alignment */
+    width: 100%;
+    max-width: 600px; /* Constrain content width */
+    margin-left: 0; /* Ensure it stays left */
+    padding-left: 20px; /* Inner padding */
+}
+
+.hero-content {
     display: flex;
-    align-items: flex-end;
-    justify-content: center;
-    flex-wrap: wrap; 
-    gap: 0.25em;
-    margin-bottom: 15px;
-    line-height: 1;
-    text-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-    color: #ffffff;
+    flex-direction: column;
+    align-items: flex-start; /* Align content inside to the left */
+    text-align: left; /* Ensure text alignment */
 }
 
-.redface-text {
-    font-size: clamp(4rem, 10vw, 7rem);
+.hero-title-block {
+    background-color: var(--accent-blue); /* Blue background for the small title */
+    color: var(--button-text-primary); /* White text */
+    padding: 8px 15px;
+    border-radius: 5px;
+    margin-bottom: 20px; /* Space below the title block */
+    display: inline-block; /* Shrink to content */
+    font-weight: 600;
+}
+
+.hero-title-block h2 {
+    font-size: 1.1rem; /* Smaller font size for the "Campfire" title */
+    margin: 0;
+    padding: 0;
+}
+
+.hero h1 {
+    font-size: clamp(3.5rem, 8vw, 5.5rem); /* Adjust main headline size */
     font-weight: 700;
-    color: var(--accent-color); /* Applied here */
-}
-
-.tagline-text {
-    font-size: clamp(2rem, 5vw, 3.5rem);
-    font-weight: 400;
-    padding-bottom: 0.15em;
+    color: var(--text-light); /* Light text for main headline */
+    margin-bottom: 20px;
+    line-height: 1.1;
+    text-shadow: none; /* Remove text shadow */
 }
 
 .hero p {
-    font-size: clamp(1rem, 2.5vw, 1.2rem);
-    max-width: 700px;
-    margin: 0 auto 30px;
-    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    font-size: clamp(1rem, 2vw, 1.15rem);
+    max-width: 500px; /* Constrain paragraph width */
+    margin: 0 0 35px 0; /* Space below paragraph */
+    text-shadow: none; /* Remove text shadow */
+    color: var(--text-dark); /* Slightly darker text for body */
 }
 
 .hero-buttons {
     display: flex;
-    justify-content: center;
+    justify-content: flex-start; /* Align button to the left */
     align-items: center;
-    flex-wrap: wrap;
-    gap: 15px;
+    flex-wrap: nowrap; /* Keep button on one line */
+    gap: 0; /* No gap needed if only one button */
 }
 
 .btn {
     display: inline-block;
-    padding: 15px 35px;
-    background-color: var(--accent-color); /* Applied here */
-    color: #fff;
+    padding: 14px 30px; /* Adjusted padding */
+    background-color: var(--button-bg-primary); /* New blue button color */
+    color: var(--button-text-primary);
     text-decoration: none;
-    border-radius: 50px;
-    font-weight: 700;
+    border-radius: 5px; /* Squared off buttons */
+    font-weight: 600;
     transition: all 0.3s ease;
-    border: 2px solid var(--accent-color); /* Applied here */
-    margin: 0;
+    border: none; /* Remove border */
+    margin: 0; /* Reset margin */
+    font-size: 1rem;
 }
 
 .btn:hover {
-    transform: translateY(-5px) scale(1.05);
-    /* Adjusted box-shadow to match new accent color */
-    box-shadow: 0 10px 20px rgba(139, 0, 0, 0.3); 
+    transform: translateY(-3px); /* Subtle lift */
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2); /* Darker shadow */
+    background-color: var(--accent-blue); /* Keep consistent on hover */
 }
 
 .btn-secondary {
-    background-color: transparent;
-}
-
-.btn-secondary:hover {
-    background-color: var(--accent-color); /* Applied here */
+    display: none; /* Hide secondary buttons as per screenshot */
 }
 
 /* --- General Sections & Cards --- */
@@ -192,7 +217,8 @@ section {
     text-align: center;
     font-size: clamp(2rem, 4vw, 2.8rem);
     margin-bottom: 60px;
-    color: var(--accent-color); /* Applied here */
+    color: var(--text-light); /* Lighter text for section titles */
+    font-weight: 600;
 }
 
 .grid {
@@ -202,38 +228,39 @@ section {
 }
 
 .card {
-    background: var(--card-bg-color);
+    background: var(--secondary-bg-color); /* Lighter background for cards */
     padding: 40px;
-    border-radius: 15px;
+    border-radius: 8px; /* Slightly more rounded corners */
     text-align: center;
-    border: 1px solid var(--border-color);
+    border: none; /* Remove border */
     backdrop-filter: blur(5px);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
-    border-color: var(--accent-color); /* Applied here */
+    transform: translateY(-5px); /* Less aggressive lift */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* Darker shadow */
+    border-color: transparent; /* Ensure no border appears */
 }
 
 .card h3 {
     font-size: 1.5em;
     margin-bottom: 15px;
-    color: #fff;
+    color: var(--text-light); /* Light text for card titles */
+    font-weight: 600;
 }
 
 .icon {
     font-size: 3em;
     margin-bottom: 20px;
-    color: var(--accent-color); /* Applied here */
+    color: var(--accent-blue); /* Use accent blue for icons */
 }
 
 /* --- Scroll Animations --- */
 .hidden {
     opacity: 0;
-    transform: translateY(50px);
-    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    transform: translateY(30px); /* Smaller animation distance */
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out; /* Slightly faster animation */
 }
 
 .hidden.show {
@@ -255,7 +282,7 @@ section {
     width: 25px;
     height: 3px;
     margin: 5px 0;
-    background-color: var(--text-color);
+    background-color: var(--text-light); /* Hamburger icon color */
     transition: all 0.3s ease;
 }
 
@@ -264,10 +291,12 @@ section {
 }
 
 footer {
-    background-color: #080716;
+    background-color: var(--header-bg); /* Use consistent footer background */
     text-align: center;
     padding: 40px 0;
-    border-top: 1px solid var(--border-color);
+    border-top: none; /* Remove border */
+    color: var(--text-dark); /* Darker text for footer */
+    font-size: 0.9em;
 }
 
 /* --- Responsive Design --- */
@@ -301,7 +330,7 @@ footer {
         top: 80px;
         left: 0;
         width: 100%;
-        background: var(--background-color);
+        background: var(--header-bg);
         padding: 20px;
         transform: translateX(-100%);
         transition: transform 0.3s ease-in-out;
@@ -312,51 +341,68 @@ footer {
     }
     
     .mobile-nav a {
-        color: var(--text-color);
+        color: var(--text-light);
         text-decoration: none;
         font-size: 1.2rem;
         padding: 15px 0;
         text-align: center;
     }
 
-    /* ==== UPDATED MOBILE HERO STYLES ==== */
+    /* ==== MOBILE HERO STYLES ==== */
     .hero {
-        min-height: auto; 
-        padding: 120px 20px 60px;
+        text-align: center; /* Center content on mobile */
+        justify-content: center; /* Center content horizontally */
+        padding: 80px 20px 60px; /* Adjust padding */
+        min-height: 85vh; /* Ensure a decent height on mobile */
+        background-position: center 80%; /* Shift background up a bit for mobile */
+    }
+
+    .hero-content-wrapper {
+        padding-left: 0; /* Remove left padding */
+        max-width: 100%; /* Allow content to take full width */
+    }
+
+    .hero-content {
+        align-items: center; /* Center content inside */
+        text-align: center; /* Center text inside */
+    }
+
+    .hero-title-block {
+        margin-bottom: 15px;
     }
 
     .hero h1 {
-        flex-direction: column;
-        align-items: center;
-        gap: 0;
-        line-height: 1.2;
-    }
-    
-    .redface-text {
-        font-size: 3.5rem;
-    }
-
-    .tagline-text {
-        font-size: 1.8rem;
+        font-size: clamp(2.5rem, 9vw, 4rem); /* Smaller main headline for mobile */
+        margin-bottom: 15px;
     }
 
     .hero p {
-        font-size: 0.95rem;
-        margin-bottom: 30px;
-        line-height: 1.6;
+        font-size: 0.95rem; /* Smaller paragraph for mobile */
+        margin-bottom: 25px;
+        max-width: 90%; /* Constrain paragraph width for better readability */
+        margin-left: auto;
+        margin-right: auto;
     }
 
     .hero-buttons {
-        flex-direction: column;
-        align-items: center;
-        gap: 12px;
-        width: 100%;
+        justify-content: center; /* Center button on mobile */
     }
 
     .btn {
-        padding: 10px 24px;
-        font-size: 0.85rem;
-        width: 80%;
-        max-width: 280px;
+        padding: 12px 25px;
+        font-size: 0.9rem;
+    }
+
+    /* Card adjustments for mobile */
+    .card {
+        padding: 30px 20px;
+    }
+
+    .card h3 {
+        font-size: 1.3em;
+    }
+
+    .icon {
+        font-size: 2.5em;
     }
 }

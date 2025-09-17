@@ -16,22 +16,42 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // --- Scroll Animation ---
-    // Create an Intersection Observer to watch for elements entering the viewport
     const observer = new IntersectionObserver((entries) => {
         entries.forEach((entry) => {
-            // If the element is visible
             if (entry.isIntersecting) {
-                // Add the 'show' class to trigger the animation
                 entry.target.classList.add('show');
-            } else {
-                // Optional: remove the class to re-animate on scroll up
-                // entry.target.classList.remove('show'); 
+            }
+        });
+    }, {
+        threshold: 0.1 // Trigger when 10% of the element is visible
+    });
+
+    const hiddenElements = document.querySelectorAll('.hidden');
+    hiddenElements.forEach((el) => observer.observe(el));
+
+    // --- Interactive FAQ Section ---
+    const faqItems = document.querySelectorAll('.faq-item');
+
+    faqItems.forEach(item => {
+        const question = item.querySelector('.faq-question');
+        const answer = item.querySelector('.faq-answer');
+
+        question.addEventListener('click', () => {
+            // Check if the current item is already active
+            const isActive = item.classList.contains('active');
+
+            // Close all other active items
+            faqItems.forEach(otherItem => {
+                otherItem.classList.remove('active');
+                otherItem.querySelector('.faq-answer').style.maxHeight = null;
+            });
+
+            // If the clicked item was not active, open it
+            if (!isActive) {
+                item.classList.add('active');
+                answer.style.maxHeight = answer.scrollHeight + "px";
             }
         });
     });
-
-    // Get all elements with the 'hidden' class and start observing them
-    const hiddenElements = document.querySelectorAll('.hidden');
-    hiddenElements.forEach((el) => observer.observe(el));
 
 });

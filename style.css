@@ -95,7 +95,7 @@ nav {
     min-height: 80vh; 
     background: 
         linear-gradient(rgba(106, 17, 203, 0.6), rgba(37, 117, 252, 0.6)), 
-        url('images/landing-heropage.png');
+        url('images/landing-heropage.png'); /* Path must match your folder */
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
@@ -178,14 +178,13 @@ section {
     padding: 100px 0;
 }
 
-/* ==== UPDATED PROBLEM SECTION STYLES ==== */
 #problem {
     background: 
-        linear-gradient(rgba(13, 12, 34, 0.9), rgba(13, 12, 34, 0.9)), /* Dark overlay for readability */
-        url('Images/problem.png');
+        linear-gradient(rgba(13, 12, 34, 0.9), rgba(13, 12, 34, 0.9)),
+        url('images/problem.png'); /* THE DEFINITIVE PATH: must match your folder */
     background-size: cover;
     background-position: center center;
-    background-attachment: fixed; /* Parallax effect */
+    background-attachment: fixed;
 }
 
 .section-title {
@@ -273,7 +272,7 @@ footer {
 /* --- Responsive Design --- */
 @media (max-width: 768px) {
     #problem {
-        background-attachment: scroll; /* Disable parallax on mobile for performance */
+        background-attachment: scroll;
     }
 
     .nav-links {

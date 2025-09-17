@@ -28,9 +28,7 @@ body {
     color: var(--text-primary);
     line-height: 1.6;
     overflow-x: hidden;
-    position: relative; /* Needed for the particle effect */
-
-    /* Animated Gradient Background */
+    position: relative;
     background: linear-gradient(
         180deg,
         #165a72, #134b5f, #0f3c4c, #0b2d39, #071e26, 
@@ -40,14 +38,12 @@ body {
     animation: moveGradient 25s ease infinite;
 }
 
-/* Keyframes for the gradient animation */
 @keyframes moveGradient {
     0% { background-position: 0% 0%; }
     50% { background-position: 0% 100%; }
     100% { background-position: 0% 0%; }
 }
 
-/* Space Dust Particle Effect Layer */
 body::after {
     content: '';
     position: fixed;
@@ -57,7 +53,6 @@ body::after {
     height: 100%;
     z-index: -1;
     pointer-events: none;
-    
     background-image:
         radial-gradient(circle at 20% 80%, rgba(200, 200, 220, 0.1) 1px, transparent 10px),
         radial-gradient(circle at 80% 30%, rgba(200, 200, 220, 0.15) 2px, transparent 15px),
@@ -65,12 +60,10 @@ body::after {
         radial-gradient(circle at 10% 20%, rgba(200, 200, 220, 0.1) 1px, transparent 12px),
         radial-gradient(circle at 90% 90%, rgba(200, 200, 220, 0.12) 2px, transparent 18px),
         radial-gradient(circle at 30% 10%, rgba(200, 200, 220, 0.08) 2px, transparent 20px);
-    
     background-size: 100% 100%;
     animation: moveDust 30s linear infinite;
 }
 
-/* Keyframes for the dust particle animation */
 @keyframes moveDust {
     from { transform: translateY(0); }
     to { transform: translateY(-100vh); }
@@ -83,7 +76,7 @@ body::after {
     padding: 0 20px;
 }
 
-/* --- Header & Navigation --- */
+/* --- Header & Navigation (Lendr.fi Style) --- */
 header {
     position: sticky;
     top: 0;
@@ -101,47 +94,19 @@ nav {
     align-items: center;
 }
 
-.header-left, .header-right {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-}
-
 .logo {
-    font-size: 1.2em;
-    font-weight: 600;
-    color: var(--text-primary);
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}
-.logo-icon {
-    background-color: var(--accent-blue);
-    width: 28px;
-    height: 28px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    font-size: 0.8em;
-}
-
-.nav-links {
-    display: flex;
-    list-style: none;
-    gap: 25px;
-}
-
-.nav-links a {
     text-decoration: none;
-    color: var(--text-secondary);
-    font-weight: 500;
-    transition: color 0.2s ease;
 }
 
-.nav-links a:hover {
-    color: var(--text-primary);
+.logo img {
+    height: 35px; /* Control the height of your logo */
+    width: auto;
+    display: block;
+}
+
+/* Hides desktop nav links for the mobile-first hamburger menu style */
+.nav-links {
+    display: none;
 }
 
 /* --- Buttons --- */
@@ -182,7 +147,7 @@ nav {
 }
 
 
-/* --- Hero Section --- */
+/* --- Hero Section (FIXED SIZING) --- */
 .hero {
     min-height: 80vh;
     background: none;
@@ -195,20 +160,26 @@ nav {
 
 .hero-content-wrapper {
     width: 100%;
-    max-width: 800px;
+    max-width: 750px; /* Increased max-width to give buttons space */
+    background: var(--card-bg);
+    backdrop-filter: blur(12px);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+    padding: 40px;
 }
 
 .hero h1 {
-    font-size: clamp(2.8rem, 6vw, 4rem);
+    font-size: clamp(2.2rem, 5vw, 3.2rem); /* Reduced font size */
     font-weight: 700;
     color: var(--text-primary);
     margin-bottom: 15px;
-    line-height: 1.2;
+    line-height: 1.3;
 }
 
 .hero p {
-    font-size: clamp(1rem, 2vw, 1.2em);
-    max-width: 700px;
+    font-size: clamp(1rem, 2vw, 1.1rem); /* Reduced font size */
+    max-width: 600px;
     margin: 0 auto 30px auto;
     color: var(--text-secondary);
 }
@@ -224,7 +195,7 @@ nav {
 /* --- General Section Styles --- */
 section {
     padding: 80px 0;
-    position: relative; /* Ensure sections are above the ::after pseudo-element */
+    position: relative;
     z-index: 1;
 }
 
@@ -246,15 +217,6 @@ section {
     max-width: 700px;
     margin: 0 auto 50px auto;
     color: var(--text-secondary);
-}
-
-/* --- General Card & Glassmorphism Styles --- */
-.card, .hero-content-wrapper, .token-card, .faq-item {
-    background: var(--card-bg);
-    backdrop-filter: blur(12px);
-    border: 1px solid var(--border-color);
-    border-radius: 12px;
-    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
 }
 
 /* --- About Section --- */
@@ -284,13 +246,18 @@ section {
     gap: 25px;
 }
 
-.features-grid .card {
+.card {
+    background: var(--card-bg);
+    backdrop-filter: blur(12px);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
     padding: 30px;
     text-align: center;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.features-grid .card:hover {
+.card:hover {
     transform: translateY(-5px);
     box-shadow: 0 8px 40px 0 rgba(0, 0, 0, 0.4);
 }
@@ -318,6 +285,11 @@ section {
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 }
 .token-card {
+    background: var(--card-bg);
+    backdrop-filter: blur(12px);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
     padding: 25px;
 }
 .token-card h4 {
@@ -376,6 +348,11 @@ section {
     margin: 0 auto;
 }
 .faq-item {
+    background: var(--card-bg);
+    backdrop-filter: blur(12px);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
     margin-bottom: 10px;
 }
 .faq-question {
@@ -493,32 +470,49 @@ footer {
 }
 
 /* --- Mobile Navigation --- */
-.hamburger { display: none; background: none; border: none; cursor: pointer; z-index: 1001; }
-.hamburger span { display: block; width: 25px; height: 3px; margin: 5px 0; background-color: var(--text-primary); transition: all 0.3s ease; }
+.hamburger { 
+    display: none; 
+    background: none; 
+    border: none; 
+    cursor: pointer; 
+    z-index: 1001; 
+    padding: 0;
+}
+.hamburger span { 
+    display: block; 
+    width: 25px; 
+    height: 3px; 
+    margin: 5px 0; 
+    background-color: var(--text-primary); 
+    transition: all 0.3s ease; 
+    border-radius: 3px;
+}
 .mobile-nav { display: none; }
 
 /* --- Responsive Design --- */
 @media (max-width: 768px) {
     body::after {
-        /* Simplifies particle effect on mobile for better performance */
         background-image:
         radial-gradient(circle at 20% 80%, rgba(200, 200, 220, 0.05) 1px, transparent 10px),
         radial-gradient(circle at 80% 30%, rgba(200, 200, 220, 0.08) 2px, transparent 15px);
     }
 
-    .nav-links { display: none; }
-    .header-right .secondary-btn { display: none; }
-    .hamburger { display: block; }
+    .header-right {
+        gap: 15px;
+    }
+    .hamburger { 
+        display: block; 
+    }
 
     .hamburger.is-active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
     .hamburger.is-active span:nth-child(2) { opacity: 0; }
-    .hamburger.is-active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+    .hamburger.is-active span:nth-child(3) { transform: rotate(-45deg) translate(7px, -6px); }
 
     .mobile-nav {
         display: flex;
         flex-direction: column;
         position: fixed;
-        top: 60px;
+        top: 65px; /* Adjust to header height */
         left: 0;
         width: 100%;
         background: var(--header-bg);
@@ -534,6 +528,8 @@ footer {
     .mobile-nav a:last-child { border-bottom: none; }
 
     .hero { padding: 60px 10px; }
+    .hero-content-wrapper { padding: 25px; }
+
     .about-section { flex-direction: column; }
     .steps-container { flex-direction: column; align-items: center; }
     .step-arrow { transform: rotate(90deg); margin: 10px 0; }

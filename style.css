@@ -3,7 +3,7 @@
 :root {
     --primary-color: #6a11cb;
     --secondary-color: #2575fc;
-    --accent-color: #ff007f;
+    --accent-color: #8b0000; /* UPDATED: Dark Oxblood Color */
     --background-color: #0d0c22;
     --text-color: #e0e0e0;
     --card-bg-color: rgba(255, 255, 255, 0.05);
@@ -51,7 +51,7 @@ nav {
 .logo {
     font-size: 1.8em;
     font-weight: 700;
-    color: var(--accent-color);
+    color: var(--accent-color); /* Applied here */
 }
 
 .nav-links {
@@ -78,12 +78,12 @@ nav {
     height: 2px;
     bottom: -5px;
     left: 0;
-    background-color: var(--accent-color);
+    background-color: var(--accent-color); /* Applied here */
     transition: width 0.3s ease;
 }
 
 .nav-links a:hover {
-    color: var(--accent-color);
+    color: var(--accent-color); /* Applied here */
 }
 
 .nav-links a:hover::after {
@@ -95,7 +95,7 @@ nav {
     min-height: 80vh; 
     background: 
         linear-gradient(rgba(106, 17, 203, 0.6), rgba(37, 117, 252, 0.6)), 
-        url('images/landing-heropage.png'); /* Path must match your folder */
+        url('images/landing-heropage.png');
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
@@ -123,7 +123,7 @@ nav {
 .redface-text {
     font-size: clamp(4rem, 10vw, 7rem);
     font-weight: 700;
-    color: var(--accent-color);
+    color: var(--accent-color); /* Applied here */
 }
 
 .tagline-text {
@@ -150,19 +150,20 @@ nav {
 .btn {
     display: inline-block;
     padding: 15px 35px;
-    background-color: var(--accent-color);
+    background-color: var(--accent-color); /* Applied here */
     color: #fff;
     text-decoration: none;
     border-radius: 50px;
     font-weight: 700;
     transition: all 0.3s ease;
-    border: 2px solid var(--accent-color);
+    border: 2px solid var(--accent-color); /* Applied here */
     margin: 0;
 }
 
 .btn:hover {
     transform: translateY(-5px) scale(1.05);
-    box-shadow: 0 10px 20px rgba(255, 0, 127, 0.3);
+    /* Adjusted box-shadow to match new accent color */
+    box-shadow: 0 10px 20px rgba(139, 0, 0, 0.3); 
 }
 
 .btn-secondary {
@@ -170,7 +171,7 @@ nav {
 }
 
 .btn-secondary:hover {
-    background-color: var(--accent-color);
+    background-color: var(--accent-color); /* Applied here */
 }
 
 /* --- General Sections & Cards --- */
@@ -181,7 +182,7 @@ section {
 #problem {
     background: 
         linear-gradient(rgba(13, 12, 34, 0.9), rgba(13, 12, 34, 0.9)),
-        url('images/problem.png'); /* THE DEFINITIVE PATH: must match your folder */
+        url('images/problem.png');
     background-size: cover;
     background-position: center center;
     background-attachment: fixed;
@@ -191,7 +192,7 @@ section {
     text-align: center;
     font-size: clamp(2rem, 4vw, 2.8rem);
     margin-bottom: 60px;
-    color: var(--accent-color);
+    color: var(--accent-color); /* Applied here */
 }
 
 .grid {
@@ -213,7 +214,7 @@ section {
 .card:hover {
     transform: translateY(-10px);
     box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
-    border-color: var(--accent-color);
+    border-color: var(--accent-color); /* Applied here */
 }
 
 .card h3 {
@@ -225,7 +226,7 @@ section {
 .icon {
     font-size: 3em;
     margin-bottom: 20px;
-    color: var(--accent-color);
+    color: var(--accent-color); /* Applied here */
 }
 
 /* --- Scroll Animations --- */

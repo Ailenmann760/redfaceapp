@@ -1,17 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
 
 :root {
-    /* New color palette inspired by the Campfire screenshot */
-    --primary-bg-color: #1a1a2e; /* Darker background */
-    --secondary-bg-color: #2e3b55; /* Slightly lighter for cards/elements */
+    --primary-bg-color: #1a1a2e;
+    --secondary-bg-color: #2e3b55;
     --text-light: #e0e0e0;
     --text-dark: #b0b0b0;
-    --accent-blue: #4a90e2; /* Blue from the Campfire title box */
-    --accent-green: #50e3c2; /* Greenish hint if needed, for now stick to blue */
-    --button-bg-primary: #4a90e2; /* Blue button background */
+    --accent-blue: #4a90e2;
+    --accent-green: #50e3c2;
+    --button-bg-primary: #4a90e2;
     --button-border-primary: #4a90e2;
     --button-text-primary: #ffffff;
-    --header-bg: rgba(26, 26, 46, 0.8); /* Semi-transparent header */
+    --header-bg: rgba(26, 26, 46, 0.8);
 }
 
 * {
@@ -41,9 +40,9 @@ header {
     top: 0;
     z-index: 1000;
     padding: 20px 0;
-    background: var(--header-bg); /* Use new header background */
-    backdrop-filter: blur(8px); /* Slightly less blur */
-    border-bottom: none; /* Remove border for cleaner look */
+    background: var(--header-bg);
+    backdrop-filter: blur(8px);
+    border-bottom: none;
 }
 
 nav {
@@ -53,10 +52,10 @@ nav {
 }
 
 .logo {
-    font-size: 1.5em; /* Slightly smaller logo */
-    font-weight: 600; /* Less bold */
-    color: var(--text-light); /* White/light text for logo */
-    opacity: 0.8; /* Subtle opacity */
+    font-size: 1.5em;
+    font-weight: 600;
+    color: var(--text-light);
+    opacity: 0.8;
     transition: opacity 0.3s ease;
 }
 .logo:hover {
@@ -66,20 +65,20 @@ nav {
 .nav-links {
     display: flex;
     list-style: none;
-    gap: 30px; /* Use gap for spacing instead of margin-left */
+    gap: 30px;
 }
 
 .nav-links li {
-    margin-left: 0; /* Reset */
+    margin-left: 0;
 }
 
 .nav-links a {
     text-decoration: none;
-    color: var(--text-dark); /* Darker text for nav links */
-    font-weight: 400; /* Lighter font weight */
+    color: var(--text-dark);
+    font-weight: 400;
     position: relative;
     transition: color 0.3s ease;
-    padding: 5px 0; /* Add padding for click area */
+    padding: 5px 0;
 }
 
 .nav-links a::after {
@@ -87,15 +86,15 @@ nav {
     position: absolute;
     width: 0;
     height: 2px;
-    bottom: 0px; /* Adjusted position */
-    left: 50%; /* Center the underline */
-    transform: translateX(-50%); /* Center the underline */
-    background-color: var(--accent-blue); /* Blue underline */
+    bottom: 0px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--accent-blue);
     transition: width 0.3s ease;
 }
 
 .nav-links a:hover {
-    color: var(--text-light); /* Lighter on hover */
+    color: var(--text-light);
 }
 
 .nav-links a:hover::after {
@@ -104,99 +103,92 @@ nav {
 
 /* --- Hero Section --- */
 .hero {
-    min-height: 100vh; /* Restore full viewport height for hero */
+    min-height: 100vh;
     background: 
-        linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.7)), /* Darker, subtle overlay */
-        url('images/landing-heropage.png'); /* Assuming this is your campfire image */
+        linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.7)),
+        url('images/landing-heropage.png');
     background-size: cover;
-    background-position: center bottom; /* Adjusted to show bottom of image more, like screenshot */
+    background-position: center bottom;
     background-repeat: no-repeat;
     display: flex;
-    justify-content: flex-start; /* Align content to the left */
-    align-items: center; /* Center content vertically */
-    text-align: left; /* Align text to the left */
-    padding: 0 40px; /* Adjust padding for spacing */
+    justify-content: flex-start;
+    align-items: center;
+    text-align: left;
+    padding: 0 40px;
     position: relative;
     overflow: hidden;
 }
 
-.hero-content-wrapper { /* New wrapper for content block alignment */
+.hero-content-wrapper {
     width: 100%;
-    max-width: 600px; /* Constrain content width */
-    margin-left: 0; /* Ensure it stays left */
-    padding-left: 20px; /* Inner padding */
+    max-width: 600px;
+    margin-left: 0;
+    padding-left: 20px;
 }
 
 .hero-content {
     display: flex;
     flex-direction: column;
-    align-items: flex-start; /* Align content inside to the left */
-    text-align: left; /* Ensure text alignment */
-}
-
-.hero-title-block {
-    background-color: var(--accent-blue); /* Blue background for the small title */
-    color: var(--button-text-primary); /* White text */
-    padding: 8px 15px;
-    border-radius: 5px;
-    margin-bottom: 20px; /* Space below the title block */
-    display: inline-block; /* Shrink to content */
-    font-weight: 600;
-}
-
-.hero-title-block h2 {
-    font-size: 1.1rem; /* Smaller font size for the "Campfire" title */
-    margin: 0;
-    padding: 0;
+    align-items: flex-start;
+    text-align: left;
 }
 
 .hero h1 {
-    font-size: clamp(3.5rem, 8vw, 5.5rem); /* Adjust main headline size */
+    font-size: clamp(3.5rem, 8vw, 5.5rem);
     font-weight: 700;
-    color: var(--text-light); /* Light text for main headline */
+    color: var(--text-light);
     margin-bottom: 20px;
     line-height: 1.1;
-    text-shadow: none; /* Remove text shadow */
+    text-shadow: none;
 }
 
 .hero p {
     font-size: clamp(1rem, 2vw, 1.15rem);
-    max-width: 500px; /* Constrain paragraph width */
-    margin: 0 0 35px 0; /* Space below paragraph */
-    text-shadow: none; /* Remove text shadow */
-    color: var(--text-dark); /* Slightly darker text for body */
+    max-width: 500px;
+    margin: 0 0 35px 0;
+    text-shadow: none;
+    color: var(--text-dark);
 }
 
 .hero-buttons {
     display: flex;
-    justify-content: flex-start; /* Align button to the left */
+    justify-content: flex-start;
     align-items: center;
-    flex-wrap: nowrap; /* Keep button on one line */
-    gap: 0; /* No gap needed if only one button */
+    flex-wrap: wrap; /* Allow buttons to wrap on mobile */
+    gap: 15px; /* Add space between the two buttons */
 }
 
 .btn {
     display: inline-block;
-    padding: 14px 30px; /* Adjusted padding */
-    background-color: var(--button-bg-primary); /* New blue button color */
-    color: var(--button-text-primary);
+    padding: 14px 30px;
     text-decoration: none;
-    border-radius: 5px; /* Squared off buttons */
+    border-radius: 5px;
     font-weight: 600;
     transition: all 0.3s ease;
-    border: none; /* Remove border */
-    margin: 0; /* Reset margin */
+    margin: 0;
     font-size: 1rem;
+    border: 2px solid var(--button-border-primary);
 }
 
 .btn:hover {
-    transform: translateY(-3px); /* Subtle lift */
-    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2); /* Darker shadow */
-    background-color: var(--accent-blue); /* Keep consistent on hover */
+    transform: translateY(-3px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
 }
 
-.btn-secondary {
-    display: none; /* Hide secondary buttons as per screenshot */
+/* Primary Button Style */
+.primary-btn {
+    background-color: var(--button-bg-primary);
+    color: var(--button-text-primary);
+}
+
+/* Secondary (Outline) Button Style */
+.secondary-btn {
+    background-color: transparent;
+    color: var(--button-text-primary);
+}
+
+.secondary-btn:hover {
+    background-color: var(--button-bg-primary);
 }
 
 /* --- General Sections & Cards --- */
@@ -217,7 +209,7 @@ section {
     text-align: center;
     font-size: clamp(2rem, 4vw, 2.8rem);
     margin-bottom: 60px;
-    color: var(--text-light); /* Lighter text for section titles */
+    color: var(--text-light);
     font-weight: 600;
 }
 
@@ -228,39 +220,39 @@ section {
 }
 
 .card {
-    background: var(--secondary-bg-color); /* Lighter background for cards */
+    background: var(--secondary-bg-color);
     padding: 40px;
-    border-radius: 8px; /* Slightly more rounded corners */
+    border-radius: 8px;
     text-align: center;
-    border: none; /* Remove border */
+    border: none;
     backdrop-filter: blur(5px);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .card:hover {
-    transform: translateY(-5px); /* Less aggressive lift */
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* Darker shadow */
-    border-color: transparent; /* Ensure no border appears */
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    border-color: transparent;
 }
 
 .card h3 {
     font-size: 1.5em;
     margin-bottom: 15px;
-    color: var(--text-light); /* Light text for card titles */
+    color: var(--text-light);
     font-weight: 600;
 }
 
 .icon {
     font-size: 3em;
     margin-bottom: 20px;
-    color: var(--accent-blue); /* Use accent blue for icons */
+    color: var(--accent-blue);
 }
 
 /* --- Scroll Animations --- */
 .hidden {
     opacity: 0;
-    transform: translateY(30px); /* Smaller animation distance */
-    transition: opacity 0.6s ease-out, transform 0.6s ease-out; /* Slightly faster animation */
+    transform: translateY(30px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 }
 
 .hidden.show {
@@ -282,8 +274,7 @@ section {
     width: 25px;
     height: 3px;
     margin: 5px 0;
-    background-color: var(--text-light); /* Hamburger icon color */
-    transition: all 0.3s ease;
+    background-color: var(--text-light);
 }
 
 .mobile-nav {
@@ -291,11 +282,11 @@ section {
 }
 
 footer {
-    background-color: var(--header-bg); /* Use consistent footer background */
+    background-color: var(--header-bg);
     text-align: center;
     padding: 40px 0;
-    border-top: none; /* Remove border */
-    color: var(--text-dark); /* Darker text for footer */
+    border-top: none;
+    color: var(--text-dark);
     font-size: 0.9em;
 }
 
@@ -348,44 +339,39 @@ footer {
         text-align: center;
     }
 
-    /* ==== MOBILE HERO STYLES ==== */
     .hero {
-        text-align: center; /* Center content on mobile */
-        justify-content: center; /* Center content horizontally */
-        padding: 80px 20px 60px; /* Adjust padding */
-        min-height: 85vh; /* Ensure a decent height on mobile */
-        background-position: center 80%; /* Shift background up a bit for mobile */
+        text-align: center;
+        justify-content: center;
+        padding: 80px 20px 60px;
+        min-height: 85vh;
+        background-position: center 80%;
     }
 
     .hero-content-wrapper {
-        padding-left: 0; /* Remove left padding */
-        max-width: 100%; /* Allow content to take full width */
+        padding-left: 0;
+        max-width: 100%;
     }
 
     .hero-content {
-        align-items: center; /* Center content inside */
-        text-align: center; /* Center text inside */
-    }
-
-    .hero-title-block {
-        margin-bottom: 15px;
+        align-items: center;
+        text-align: center;
     }
 
     .hero h1 {
-        font-size: clamp(2.5rem, 9vw, 4rem); /* Smaller main headline for mobile */
+        font-size: clamp(2.5rem, 9vw, 4rem);
         margin-bottom: 15px;
     }
 
     .hero p {
-        font-size: 0.95rem; /* Smaller paragraph for mobile */
+        font-size: 0.95rem;
         margin-bottom: 25px;
-        max-width: 90%; /* Constrain paragraph width for better readability */
+        max-width: 90%;
         margin-left: auto;
         margin-right: auto;
     }
 
     .hero-buttons {
-        justify-content: center; /* Center button on mobile */
+        justify-content: center;
     }
 
     .btn {
@@ -393,7 +379,6 @@ footer {
         font-size: 0.9rem;
     }
 
-    /* Card adjustments for mobile */
     .card {
         padding: 30px 20px;
     }

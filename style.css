@@ -1,19 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
 :root {
-    /* New Color Palette inspired by the "Vaults" screenshot */
-    --primary-bg: #f0f2f5;           /* Light grey background */
-    --secondary-bg: #ffffff;         /* White for cards/containers */
-    --header-bg: #ffffff;            /* White for header */
-    --text-primary: #333333;         /* Dark grey for main text */
-    --text-secondary: #666666;       /* Medium grey for secondary text */
-    --accent-blue: #007bff;          /* Bright blue for accents/buttons */
-    --border-color: #e0e0e0;         /* Light grey for borders */
-    --shadow-light: rgba(0, 0, 0, 0.05); /* Subtle shadow for depth */
+    --primary-bg: #f0f2f5;
+    --secondary-bg: #ffffff;
+    --header-bg: #ffffff;
+    --text-primary: #333333;
+    --text-secondary: #666666;
+    --accent-blue: #007bff;
+    --border-color: #e0e0e0;
+    --shadow-light: rgba(0, 0, 0, 0.05);
     --shadow-medium: rgba(0, 0, 0, 0.1);
-    --hover-bg-light: #f8f9fa;       /* Very light grey for hover states */
-    --tag-bg: #e2f0ff;               /* Light blue background for tags (e.g., Sepolia) */
-    --tag-text: #0056b3;             /* Darker blue text for tags */
+    --hover-bg-light: #f8f9fa;
 }
 
 * {
@@ -38,13 +35,13 @@ body {
 
 /* --- Header & Navigation --- */
 header {
-    position: sticky; /* Sticky header like in the screenshot */
+    position: sticky;
     top: 0;
     width: 100%;
     z-index: 1000;
     padding: 15px 0;
     background: var(--header-bg);
-    box-shadow: 0 2px 10px var(--shadow-light); /* Subtle shadow for header */
+    box-shadow: 0 2px 10px var(--shadow-light);
     border-bottom: 1px solid var(--border-color);
 }
 
@@ -68,7 +65,7 @@ nav {
     align-items: center;
     gap: 8px;
 }
-.logo-icon { /* For the circle logo icon */
+.logo-icon {
     background-color: var(--accent-blue);
     width: 28px;
     height: 28px;
@@ -86,80 +83,23 @@ nav {
     gap: 25px;
 }
 
-.nav-links li {
-    margin: 0;
-}
-
 .nav-links a {
     text-decoration: none;
     color: var(--text-secondary);
     font-weight: 500;
     position: relative;
-    transition: color 0.2s ease, transform 0.2s ease;
-    padding: 8px 0; /* Make clickable area larger */
-}
-
-.nav-links a::after {
-    content: '';
-    position: absolute;
-    width: 0;
-    height: 3px;
-    bottom: -5px;
-    left: 50%;
-    transform: translateX(-50%);
-    background-color: var(--accent-blue);
-    transition: width 0.3s ease;
+    transition: color 0.2s ease;
+    padding: 8px 0;
 }
 
 .nav-links a:hover {
     color: var(--text-primary);
-    transform: translateY(-2px); /* Subtle lift on hover */
 }
 
-.nav-links a:hover::after {
-    width: 100%;
-}
-
-/* Header right elements (TVL, BSC, etc.) */
-.header-info {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-}
-
-.header-info span {
-    color: var(--text-secondary);
-    font-size: 0.9em;
-    font-weight: 500;
-}
-
-.header-info .value {
-    color: var(--text-primary);
-    font-weight: 600;
-}
-
-.header-badge {
-    background-color: var(--hover-bg-light); /* Light background for badge */
-    border: 1px solid var(--border-color);
-    border-radius: 20px;
-    padding: 5px 12px;
-    font-size: 0.85em;
-    font-weight: 600;
-    color: var(--text-primary);
-    display: flex;
-    align-items: center;
-    gap: 5px;
-}
-.header-badge img { /* For the BSC icon */
-    height: 16px;
-    width: 16px;
-    border-radius: 50%;
-}
-
-/* --- Hero Section (Adapted to new style) --- */
+/* --- Hero Section --- */
 .hero {
-    min-height: 80vh; /* Shorter hero section, more like a landing block */
-    background: var(--primary-bg); /* Use primary background, no image here for now */
+    min-height: 80vh;
+    background: var(--primary-bg);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -167,7 +107,7 @@ nav {
     padding: 80px 20px;
     position: relative;
     overflow: hidden;
-    border-bottom: 1px solid var(--border-color); /* Separator */
+    border-bottom: 1px solid var(--border-color);
 }
 
 .hero-content-wrapper {
@@ -180,16 +120,26 @@ nav {
     text-align: center;
 }
 
-.hero-content {
-    align-items: center;
-}
-
 .hero h1 {
-    font-size: clamp(2.5rem, 6vw, 3.5rem); /* Adjust main headline size */
-    font-weight: 700;
-    color: var(--text-primary);
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.2em;
     margin-bottom: 15px;
     line-height: 1.2;
+    color: var(--text-secondary);
+}
+
+.redface-text {
+    font-size: clamp(3rem, 10vw, 4.5rem);
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+.tagline-text {
+    font-size: clamp(1.8rem, 8vw, 2.5rem);
+    font-weight: 500;
 }
 
 .hero p {
@@ -201,18 +151,18 @@ nav {
 
 .hero-buttons {
     justify-content: center;
-    gap: 20px; /* Space between two buttons */
 }
 
+/* --- Buttons --- */
 .btn {
     display: inline-block;
     padding: 12px 28px;
     text-decoration: none;
-    border-radius: 8px; /* More rounded buttons */
+    border-radius: 8px;
     font-weight: 600;
     transition: all 0.2s ease;
     font-size: 1em;
-    border: none; /* Remove default border */
+    border: 1px solid transparent;
     cursor: pointer;
 }
 
@@ -221,144 +171,82 @@ nav {
     box-shadow: 0 5px 15px var(--shadow-medium);
 }
 
-/* Primary Button Style */
 .primary-btn {
     background-color: var(--accent-blue);
-    color: var(--button-text-primary); /* Assuming white text for buttons */
+    color: #ffffff;
+    border-color: var(--accent-blue);
 }
 
-/* Secondary (Outline) Button Style */
 .secondary-btn {
-    background-color: var(--hover-bg-light); /* Light background for secondary button */
-    color: var(--text-secondary); /* Darker text */
+    background-color: transparent;
+    color: var(--text-secondary);
     border: 1px solid var(--border-color);
 }
 
 .secondary-btn:hover {
-    background-color: #e6e6e6; /* Slightly darker on hover */
+    background-color: var(--hover-bg-light);
+    color: var(--text-primary);
 }
 
 
-/* --- General Sections & Cards (Vaults Style) --- */
+/* --- Features Section --- */
 section {
-    padding: 80px 0; /* Slightly less padding */
+    padding: 80px 0;
 }
 
 .section-title {
-    text-align: left; /* Align title to left like "Vaults" */
-    font-size: clamp(2em, 4vw, 2.5em);
-    margin-bottom: 40px; /* Less margin */
+    text-align: center;
+    font-size: clamp(2em, 4vw, 2.8em);
+    margin-bottom: 40px;
     color: var(--text-primary);
     font-weight: 700;
-    padding-left: 20px; /* Align with container */
 }
 
 .grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); /* Wider cards */
-    gap: 25px; /* Slightly less gap */
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 25px;
 }
 
 .card {
-    background: var(--secondary-bg); /* White background for cards */
-    padding: 30px; /* Less padding */
-    border-radius: 12px; /* More rounded cards */
-    text-align: left; /* Align card content to left */
-    border: 1px solid var(--border-color); /* Subtle border */
-    box-shadow: 0 4px 15px var(--shadow-light); /* Subtle shadow */
-    backdrop-filter: none; /* Remove blur */
+    background: var(--secondary-bg);
+    padding: 30px;
+    border-radius: 12px;
+    text-align: center; /* Center card content */
+    border: 1px solid var(--border-color);
+    box-shadow: 0 4px 15px var(--shadow-light);
     transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
-    display: flex; /* Flexbox for internal layout */
-    flex-direction: column;
 }
 
 .card:hover {
-    transform: translateY(-3px); /* Subtle lift */
-    box-shadow: 0 8px 20px var(--shadow-medium); /* More prominent shadow on hover */
-    border-color: var(--accent-blue); /* Accent border on hover */
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px var(--shadow-medium);
+    border-color: var(--accent-blue);
 }
 
-.card-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 20px;
+.card-icon {
+    font-size: 2.5em;
+    color: var(--accent-blue);
+    margin-bottom: 15px;
 }
 
 .card-title {
     font-size: 1.4em;
     font-weight: 600;
     color: var(--text-primary);
+    margin-bottom: 10px;
 }
 
-.tag {
-    background-color: var(--tag-bg);
-    color: var(--tag-text);
-    padding: 5px 10px;
-    border-radius: 6px;
-    font-size: 0.8em;
-    font-weight: 600;
-}
-
-.card-info {
-    margin-bottom: 20px;
-}
-
-.card-row {
-    display: flex;
-    justify-content: space-between;
-    padding: 8px 0;
-    border-bottom: 1px dashed var(--border-color); /* Dashed separator */
+.card-description {
     color: var(--text-secondary);
     font-size: 0.95em;
-    font-weight: 500;
-}
-.card-row:last-of-type {
-    border-bottom: none; /* No border on last item */
-    margin-bottom: 15px;
-}
-.card-row .value {
-    color: var(--text-primary);
-    font-weight: 600;
-}
-
-.card-balance {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: auto; /* Push balance to bottom */
-    padding-top: 15px;
-    border-top: 1px solid var(--border-color);
-}
-.card-balance label {
-    font-size: 0.9em;
-    color: var(--text-secondary);
-}
-.card-balance-value {
-    font-size: 1.1em;
-    font-weight: 600;
-    color: var(--text-primary);
-}
-
-.card .btn { /* Adjust button within card */
-    width: 100%;
-    margin-top: 20px;
-    padding: 12px 0;
-}
-
-/* Tooltip for help icons */
-.info-icon {
-    font-size: 0.9em;
-    color: var(--text-secondary);
-    margin-left: 5px;
-    cursor: help;
 }
 
 /* --- Scroll Animations --- */
 .hidden {
     opacity: 0;
-    transform: translateY(20px); /* Shorter animation distance */
-    transition: opacity 0.5s ease-out, transform 0.5s ease-out; /* Faster animation */
+    transform: translateY(20px);
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
 }
 
 .hidden.show {
@@ -380,7 +268,7 @@ section {
     width: 25px;
     height: 3px;
     margin: 5px 0;
-    background-color: var(--text-primary); /* Darker hamburger icon */
+    background-color: var(--text-primary);
     transition: all 0.3s ease;
 }
 
@@ -389,63 +277,32 @@ section {
 }
 
 footer {
-    background-color: var(--secondary-bg); /* Use card background for footer */
+    background-color: var(--secondary-bg);
     text-align: center;
-    padding: 30px 0; /* Less padding */
+    padding: 30px 0;
     border-top: 1px solid var(--border-color);
     color: var(--text-secondary);
     font-size: 0.85em;
-    box-shadow: 0 -2px 10px var(--shadow-light); /* Subtle top shadow */
 }
 
 /* --- Responsive Design --- */
 @media (max-width: 768px) {
-    header {
-        padding: 10px 0;
-    }
-    .header-left, .header-right {
-        gap: 10px;
-    }
-    .logo {
-        font-size: 1.1em;
-    }
-    .logo-icon {
-        width: 24px;
-        height: 24px;
-        font-size: 0.7em;
-    }
-    .nav-links {
-        display: none;
-    }
-    .hamburger {
-        display: block;
-    }
-    .header-info {
-        gap: 10px;
-    }
-    .header-info span, .header-badge {
-        font-size: 0.8em;
-    }
-    .header-badge img {
-        height: 14px;
-        width: 14px;
-    }
+    .nav-links { display: none; }
+    .header-right .secondary-btn { display: none; } /* Hide whitepaper button on mobile header */
+    .hamburger { display: block; }
 
-    .hamburger.is-active span:nth-child(1) {
-        transform: rotate(45deg) translate(5px, 5px);
-    }
-    .hamburger.is-active span:nth-child(2) {
-        opacity: 0;
-    }
-    .hamburger.is-active span:nth-child(3) {
-        transform: rotate(-45deg) translate(5px, -5px);
-    }
+    .header-left { flex-grow: 1; } /* Allow logo to take space */
+    .header-right { gap: 15px; }
+
+    .hamburger.is-active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+    .hamburger.is-active span:nth-child(2) { opacity: 0; }
+    .hamburger.is-active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
 
     .mobile-nav {
         display: flex;
         flex-direction: column;
         position: fixed;
-        top: 60px; /* Adjust based on header height */
+        top: 60px;
         left: 0;
         width: 100%;
         background: var(--header-bg);
@@ -453,13 +310,9 @@ footer {
         transform: translateX(-100%);
         transition: transform 0.3s ease-in-out;
         box-shadow: 0 5px 15px var(--shadow-medium);
-        border-bottom-left-radius: 12px;
-        border-bottom-right-radius: 12px;
     }
 
-    .mobile-nav.is-active {
-        transform: translateX(0);
-    }
+    .mobile-nav.is-active { transform: translateX(0); }
     
     .mobile-nav a {
         color: var(--text-primary);
@@ -469,70 +322,20 @@ footer {
         text-align: center;
         border-bottom: 1px solid var(--border-color);
     }
-    .mobile-nav a:last-child {
-        border-bottom: none;
-    }
+    .mobile-nav a:last-child { border-bottom: none; }
 
-    /* ==== MOBILE HERO STYLES ==== */
     .hero {
         padding: 60px 10px;
-        min-height: auto;
+        min-height: 70vh;
     }
 
-    .hero-content-wrapper {
-        padding: 20px;
-    }
+    .hero-content-wrapper { padding: 25px; }
+    .redface-text { font-size: 2.8rem; }
+    .tagline-text { font-size: 1.5rem; }
+    .hero p { font-size: 0.9em; margin-bottom: 25px; }
 
-    .hero h1 {
-        font-size: clamp(2rem, 8vw, 2.8rem);
-    }
+    .btn { width: 100%; max-width: 280px; }
 
-    .hero p {
-        font-size: 0.9em;
-        margin-bottom: 20px;
-    }
-
-    .hero-buttons {
-        flex-direction: column;
-        gap: 10px;
-    }
-
-    .btn {
-        width: 100%; /* Full width buttons on mobile */
-        max-width: 250px; /* Max width for readability */
-        padding: 10px 20px;
-        font-size: 0.9em;
-    }
-
-    .section-title {
-        text-align: center; /* Center section titles on mobile */
-        padding-left: 0;
-        margin-bottom: 30px;
-    }
-
-    .grid {
-        grid-template-columns: 1fr; /* Single column for cards on mobile */
-        padding: 0 10px;
-    }
-
-    .card {
-        padding: 25px;
-    }
-
-    .card-title {
-        font-size: 1.2em;
-    }
-
-    .card-row {
-        font-size: 0.85em;
-        padding: 6px 0;
-    }
-
-    .card-balance-value {
-        font-size: 1em;
-    }
-
-    footer {
-        padding: 20px 0;
-    }
+    .section-title { margin-bottom: 30px; }
+    .grid { padding: 0 10px; }
 }

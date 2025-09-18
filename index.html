@@ -1,226 +1,75 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RedFace - The New Creator Economy</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script> 
-</head>
-<body>
+    <title>WagyDog - NFT Marketplace & Meme Coin</title>
+    
+    <link rel="icon" type="image/jpeg" href="wagydog-logo.jpg">
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <script src="https://cdn.ethers.io/lib/ethers-5.2.umd.min.js" type="application/javascript"></script>
+    <script src="https://unpkg.com/@web3modal/standalone@2.4.1/dist/index.umd.js"></script>
 
-    <header>
-        <nav class="container">
-            <a href="#" class="logo">
-                <img src="images/redfacelogo.png" alt="RedFace Logo">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;900&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="relative">
+
+    <header class="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md shadow-sm">
+        <div class="container mx-auto px-6 py-3 flex justify-between items-center">
+            <a href="#home" class="flex items-center space-x-3">
+                <img src="wagydog-logo.jpg" alt="WagyDog Logo" class="h-12 w-auto">
+                <span class="text-2xl font-black text-gray-800 hidden sm:inline">WagyDog</span>
             </a>
-            
-            <button class="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
+            <nav class="hidden md:flex items-center space-x-8">
+                <a href="#about" class="nav-link">About</a>
+                <a href="https://wagydog.gitbook.io/wagydog-whitepaper" target="_blank" class="nav-link">Whitepaper</a>
+                <a href="#roadmap" class="nav-link">Roadmap</a>
+                <a href="#nft" class="nav-link">Marketplace</a>
+                <a href="#swap" class="nav-link">Swap</a>
+            </nav>
+            <div class="hidden md:flex items-center space-x-4">
+                 <a href="#" class="btn-secondary">Buy Token</a>
+                 <button id="header-connect-btn" class="btn-primary">Connect Wallet</button>
+            </div>
+            <button id="menu-btn" class="md:hidden focus:outline-none z-50">
+                <i class="fas fa-bars text-2xl text-gray-700"></i>
             </button>
-        </nav>
-        
-        <div class="mobile-nav">
-            <a href="#home">Home</a>
-            <a href="#about">About</a>
-            <a href="#features">Features</a>
-            <a href="#token">Wagydog (Token)</a>
-            <a href="#community">Community</a>
-            <a href="#faq">FAQ</a>
-            <a href="#contact">Support</a>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden bg-white/95">
+             <div class="flex flex-col items-center space-y-6 py-8">
+                <a href="#about" class="nav-link mobile-link">About</a>
+                <a href="https://wagydog.gitbook.io/wagydog-whitepaper" target="_blank" class="nav-link mobile-link">Whitepaper</a>
+                <a href="#roadmap" class="nav-link mobile-link">Roadmap</a>
+                <a href="#nft" class="nav-link mobile-link">Marketplace</a>
+                <a href="#swap" class="nav-link mobile-link">Swap</a>
+                <a href="#" class="btn-secondary mt-4 mobile-link">Buy Token</a>
+                <button id="mobile-connect-btn" class="btn-primary mt-4 mobile-link">Connect</button>
+            </div>
         </div>
     </header>
 
     <main>
-        <section id="home" class="hero">
-            <div class="container hero-content-wrapper">
-                <div class="hero-content hidden">
-                    <h1>The New Creator Economy – Powered by RedFace & Wagydog</h1>
-                    <p>A Web3-powered social platform designed for a global, inclusive, and equitable future for creators.</p>
-                    <div class="hero-buttons">
-                        <a href="#" class="btn primary-btn">Launch App</a>
-                        <a href="https://docs.google.com/document/d/1qmfbA13A5u29QXfY-9LaupK8RehpxD37/edit?usp=drivesdk&ouid=103868857290033039810&rtpof=true&sd=true" class="btn secondary-btn" target="_blank">Read Docs</a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="about" class="alternate-bg">
-            <div class="container about-section hidden">
-                <div class="about-text">
-                    <h2 class="section-title">A New Era for Creators.</h2>
-                    <p>RedFace is architecting the future of social media by combining decentralized blockchain technology with intuitive social features. Our mission is to dismantle the barriers of the traditional creator economy—high fees, censorship, and lack of ownership—and build a transparent, equitable ecosystem where creators truly own their content and their community.</p>
-                </div>
-                <div class="about-image">
-                    </div>
-            </div>
-        </section>
-
-        <section id="features">
-            <div class="container">
-                <h2 class="section-title hidden">Core Features</h2>
-                <div class="grid features-grid">
-                    <div class="card hidden">
-                        <div class="card-icon"><i class="fas fa-user-circle"></i></div>
-                        <h3 class="card-title">Social Platform</h3>
-                        <p class="card-description">Enjoy all the features of a modern social network: customizable profiles, content feeds, direct messaging, and community engagement tools.</p>
-                    </div>
-                    <div class="card hidden">
-                        <div class="card-icon"><i class="fas fa-store"></i></div>
-                        <h3 class="card-title">Creator Economy Tools</h3>
-                        <p class="card-description">Monetize your content directly with fan subscriptions, tips, and premium services, all powered by the Wagydog token.</p>
-                    </div>
-                    <div class="card hidden">
-                        <div class="card-icon"><i class="fas fa-cubes"></i></div>
-                        <h3 class="card-title">Blockchain Integration</h3>
-                        <p class="card-description">Connect your wallet to manage your $WAGY tokens, mint unique content as NFTs, and participate in community governance.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-        
-        <section id="token" class="alternate-bg">
-            <div class="container hidden">
-                <h2 class="section-title">The Wagydog ($WAGY) Token</h2>
-                <p class="section-subtitle">The utility token that powers the entire RedFace ecosystem.</p>
-                <div class="grid token-grid">
-                    <div class="token-card">
-                        <h4>Payments & Subscriptions</h4>
-                        <p>Use $WAGY for all in-app transactions, from tipping creators to subscribing for exclusive content.</p>
-                    </div>
-                    <div class="token-card">
-                        <h4>Rewards & Incentives</h4>
-                        <p>Earn $WAGY tokens for creating popular content, engaging with the community, and participating in platform events.</p>
-                    </div>
-                    <div class="token-card">
-                        <h4>Community Governance</h4>
-                        <p>Hold $WAGY to vote on key platform decisions, giving you a real stake in the future of the ecosystem.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="how-it-works">
-            <div class="container hidden">
-                <h2 class="section-title">Get Started in 4 Simple Steps</h2>
-                <div class="steps-container">
-                    <div class="step-card">
-                        <div class="step-number">1</div>
-                        <h4>Sign Up</h4>
-                        <p>Create your RedFace profile in minutes. It’s free to join.</p>
-                    </div>
-                    <div class="step-arrow"><i class="fas fa-long-arrow-alt-right"></i></div>
-                    <div class="step-card">
-                        <div class="step-number">2</div>
-                        <h4>Connect Wallet</h4>
-                        <p>Link your preferred Web3 wallet to manage your earnings and tokens.</p>
-                    </div>
-                    <div class="step-arrow"><i class="fas fa-long-arrow-alt-right"></i></div>
-                    <div class="step-card">
-                        <div class="step-number">3</div>
-                        <h4>Create & Engage</h4>
-                        <p>Post content, connect with fans, and build your community.</p>
-                    </div>
-                    <div class="step-arrow"><i class="fas fa-long-arrow-alt-right"></i></div>
-                    <div class="step-card">
-                        <div class="step-number">4</div>
-                        <h4>Earn with Wagydog</h4>
-                        <p>Receive direct payments and rewards in $WAGY for your contributions.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="faq" class="alternate-bg">
-            <div class="container hidden">
-                <h2 class="section-title">Frequently Asked Questions</h2>
-                <div class="faq-container">
-                    <div class="faq-item">
-                        <button class="faq-question">
-                            <span>What is RedFace?</span>
-                            <i class="fas fa-chevron-down"></i>
-                        </button>
-                        <div class="faq-answer">
-                            <p>RedFace is a Web3 social media platform designed to empower creators, especially in Africa, by providing tools for direct monetization, community ownership, and censorship-resistant communication. It uses blockchain technology to create a more equitable and transparent creator economy.</p>
-                        </div>
-                    </div>
-                    <div class="faq-item">
-                        <button class="faq-question">
-                            <span>What can I do with Wagydog ($WAGY)?</span>
-                            <i class="fas fa-chevron-down"></i>
-                        </button>
-                        <div class="faq-answer">
-                            <p>$WAGY is the primary utility token of the RedFace ecosystem. You can use it to subscribe to creators, send tips, pay for premium services like content boosts, and participate in community governance by voting on platform proposals.</p>
-                        </div>
-                    </div>
-                    <div class="faq-item">
-                        <button class="faq-question">
-                            <span>Do I need crypto knowledge to use the app?</span>
-                            <i class="fas fa-chevron-down"></i>
-                        </button>
-                        <div class="faq-answer">
-                            <p>No! While RedFace is built on powerful Web3 technology, the user experience is designed to be as simple and intuitive as any traditional social media app. We handle the complexities of the blockchain in the background, so you can focus on creating and connecting.</p>
-                        </div>
-                    </div>
-                    <div class="faq-item">
-                        <button class="faq-question">
-                            <span>How do creators earn?</span>
-                            <i class="fas fa-chevron-down"></i>
-                        </button>
-                        <div class="faq-answer">
-                            <p>Creators earn directly from their fans through subscriptions and tips paid in $WAGY. They can also utilize premium services to boost their content. Because the platform is decentralized, creators keep the vast majority of their earnings, unlike traditional platforms that take large cuts.</p>
-                        </div>
-                    </div>
-                    <div class="faq-item">
-                        <button class="faq-question">
-                            <span>Is it free to join?</span>
-                            <i class="fas fa-chevron-down"></i>
-                        </button>
-                        <div class="faq-answer">
-                            <p>Yes, joining RedFace and creating a profile is completely free. You only need to connect a wallet and hold $WAGY tokens to access the platform's monetization features, either as a creator or a supporter.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="community">
-            <div class="container hidden">
-                <h2 class="section-title">Join the Movement</h2>
-                <p class="section-subtitle">Become a part of the RedFace community and help shape the future of the creator economy.</p>
-                <div class="community-links">
-                    <a href="#" class="social-link"><i class="fab fa-telegram-plane"></i> Telegram</a>
-                    <a href="#" class="social-link"><i class="fab fa-discord"></i> Discord</a>
-                    <a href="#" class="social-link"><i class="fab fa-twitter"></i> X / Twitter</a>
-                    <a href="#" class="social-link"><i class="fab fa-youtube"></i> YouTube</a>
-                </div>
-            </div>
-        </section>
+        <section id="home" class="pt-32 pb-16 md:pt-48 md:pb-24 flex items-center px-6"><div class="container mx-auto grid md:grid-cols-2 gap-12 items-center"><div class="text-center md:text-left"><h1 class="text-5xl md:text-7xl font-black text-gray-800 leading-tight">A New Breed of <br class="hidden md:block"/> <span class="gradient-text">Meme Coin</span></h1><p class="text-lg md:text-xl mt-6 max-w-xl mx-auto md:mx-0 text-gray-600">WagyDog is wagging its tail on the BNB Chain, combining fun, community, and real utility.</p><div class="mt-10 flex flex-col sm:flex-row gap-4 justify-center md:justify-start"><a href="#" class="btn-primary">Get Started</a><a href="#about" class="btn-secondary">Learn More</a></div></div><div class="flex justify-center p-4"><img src="wagydog-logo.jpg" alt="WagyDog Official Logo" class="w-full max-w-sm md:max-w-md animate-float"></div></div></section>
+        <section id="about" class="py-20 px-6 space-bg overflow-hidden fade-in-section"><canvas id="starfield"></canvas><div class="container mx-auto space-content"><div class="text-center"><h2 class="text-4xl font-bold text-white">About <span class="gradient-text">WagyDog</span></h2></div><div class="max-w-4xl mx-auto content-card bg-white/10 text-white border-white/20 mt-12 space-y-6 animate-float" style="animation-duration: 10s;"><p class="text-gray-300 text-lg leading-relaxed">WagyDog is a decentralized movement championing the idea that fun, finance, and freedom can coexist in the Web3 era. We are more than a token; we are a community-driven project on the BNB Chain, designed to merge the viral power of meme culture with tangible utility and genuine community governance.</p></div></div></section>
+        <section id="whitepaper-cta" class="py-16 px-6 bg-gray-100 fade-in-section"><div class="container mx-auto text-center"><h3 class="text-2xl md:text-3xl font-bold text-gray-800 mb-6">Dive deeper into the WagyDog universe.</h3><a href="https://wagydog.gitbook.io/wagydog-whitepaper" target="_blank" class="btn-primary inline-flex items-center gap-2"><i class="fas fa-book-open"></i> Read The Whitepaper</a></div></section>
+        <section id="roadmap" class="py-20 px-6 fade-in-section"><div class="container mx-auto"><h2 class="text-4xl font-bold text-center mb-16 text-gray-800">Our <span class="gradient-text">Roadmap</span></h2><div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8"><div class="content-card text-center transform hover:-translate-y-2 transition-all duration-300"><div class="text-3xl font-bold gradient-text mb-4">01</div><h3 class="text-xl font-bold mb-3 text-gray-800">Foundation</h3><ul class="text-gray-600 space-y-2"><li>Contract Development</li><li>Website & Whitepaper</li><li>Community Building</li><li>Fair Launch</li></ul></div><div class="content-card text-center transform hover:-translate-y-2 transition-all duration-300"><div class="text-3xl font-bold gradient-text mb-4">02</div><h3 class="text-xl font-bold mb-3 text-gray-800">Growth</h3><ul class="text-gray-600 space-y-2"><li>Listings on CMC/CG</li><li>Contract Audit</li><li>Marketing Campaigns</li><li>CEX Listing</li></ul></div><div class="content-card text-center transform hover:-translate-y-2 transition-all duration-300"><div class="text-3xl font-bold gradient-text mb-4">03</div><h3 class="text-xl font-bold mb-3 text-gray-800">Ecosystem</h3><ul class="text-gray-600 space-y-2"><li>NFT Collection</li><li>NFT Staking</li><li>WagySwap DEX</li><li>Governance</li></ul></div><div class="content-card text-center transform hover:-translate-y-2 transition-all duration-300"><div class="text-3xl font-bold gradient-text mb-4">04</div><h3 class="text-xl font-bold mb-3 text-gray-800">Future</h3><ul class="text-gray-600 space-y-2"><li>WagyDog Wallet</li><li>P2E Game</li><li>Charity Donations</li><li>Cross-Chain</li></ul></div></div></div></section>
+        <section id="nft" class="py-20 px-6 space-bg overflow-hidden fade-in-section"><canvas id="starfield2"></canvas><div class="container mx-auto space-content"><div class="text-center mb-16"><h2 class="text-4xl font-bold mb-4 text-white">WagyDog <span class="gradient-text">Marketplace</span></h2><p class="text-lg text-gray-400 max-w-2xl mx-auto">Explore, mint, and trade the most exclusive dog NFTs in the galaxy.</p></div><div class="dashboard-grid"><aside class="dashboard-controls"><div class="control-card"><h3 class="text-2xl font-bold text-white mb-4">Wallet Status</h3><div id="wallet-connection-info"><p class="text-gray-400 mb-4">Connect your wallet to access the marketplace and mint new NFTs.</p><button id="dashboard-connect-btn" class="btn-primary w-full"><i class="fas fa-wallet mr-2"></i> Connect Wallet</button></div><div id="wallet-connected-info" class="hidden"><p class="text-green-400 font-semibold">Wallet Connected</p><p id="wallet-address" class="text-sm text-gray-300 bg-black/30 p-2 rounded-lg mt-2 font-mono break-all"></p><button id="disconnect-btn" class="btn-secondary w-full mt-4 text-sm py-2">Disconnect</button></div></div><div class="control-card"><h3 class="text-2xl font-bold text-white mb-2">Mint a WagyDog</h3><p class="text-gray-400 mb-4 text-sm">A new companion awaits. Minting is limited, so grab yours now!</p><img src="wagydog-logo.jpg" alt="NFT to mint" class="rounded-2xl mb-4 shadow-lg animate-float" style="animation-duration: 8s;"><div class="flex justify-between items-center text-lg mb-4"><span class="font-bold text-gray-300">Price:</span><span class="gradient-text font-black">0.05 BNB</span></div><button id="mint-nft-btn" class="btn-primary w-full" disabled><i class="fas fa-star mr-2"></i> Mint Now</button></div></aside><main id="nft-gallery" class="dashboard-gallery"></main></div></div></section>
+        <section id="swap" class="py-20 px-6 fade-in-section"><div class="container mx-auto max-w-lg"><div class="swap-card"><div class="swap-card-header"><h2 class="text-3xl font-bold text-gray-800">WagyDog <span class="gradient-text">Swap</span></h2><button id="settings-btn" class="text-gray-500 hover:text-blue-500 transition-transform duration-300 hover:rotate-90"><i class="fas fa-cog text-2xl"></i></button></div><div class="token-input-container"><div class="token-input-header"><span class="text-sm text-gray-500">From</span><span class="text-sm text-gray-500">Balance: <span id="from-token-balance">0.00</span></span></div><div class="token-input-body"><input type="number" id="from-amount" placeholder="0.0" class="token-amount-input"><button id="from-token-select" class="token-select-btn"><img src="https://s2.coinmarketcap.com/static/img/coins/64x64/1839.png" alt="BNB" class="token-logo"><span class="token-name">BNB</span><i class="fas fa-chevron-down ml-2"></i></button></div></div><div class="swap-arrow-container"><button id="swap-direction-btn" class="swap-arrow-btn"><i class="fas fa-arrow-down"></i></button></div><div class="token-input-container"><div class="token-input-header"><span class="text-sm text-gray-500">To</span><span class="text-sm text-gray-500">Balance: <span id="to-token-balance">0.00</span></span></div><div class="token-input-body"><input type="number" id="to-amount" placeholder="0.0" class="token-amount-input"><button id="to-token-select" class="token-select-btn"><img src="wagydog-logo.jpg" alt="WagyDog" class="token-logo"><span class="token-name">WAGY</span><i class="fas fa-chevron-down ml-2"></i></button></div></div><div id="swap-info" class="swap-info-container"><p class="text-sm text-gray-600">1 BNB = 1,500,000 WAGY</p></div><button id="swap-action-btn" class="btn-primary w-full h-14 text-xl font-bold mt-4">Connect Wallet</button></div></div></section>
+        <section id="partners" class="py-20 px-6 bg-gray-100 fade-in-section"><div class="container mx-auto text-center"><h2 class="text-3xl font-bold text-gray-800 mb-12">Partners & <span class="gradient-text">Supporters</span></h2><div class="flex flex-wrap justify-center items-center gap-x-12 sm:gap-x-16 gap-y-8"><a href="https://www.bnbchain.org/" target="_blank" class="partner-logo"><img src="https://s2.coinmarketcap.com/static/img/coins/64x64/1839.png" alt="BNB Chain"></a><a href="https://pancakeswap.finance/" target="_blank" class="partner-logo"><img src="https://s2.coinmarketcap.com/static/img/coins/64x64/7186.png" alt="PancakeSwap"></a><a href="https://coinmarketcap.com/" target="_blank" class="partner-logo"><img src="https://s2.coinmarketcap.com/static/cloud/img/coinmarketcap_1.svg?_=810f399" alt="CoinMarketCap" style="height: 35px;"></a></div></div></section>
+        <section id="community" class="py-20 px-6"><div class="container mx-auto text-center"><h2 class="text-4xl font-bold">Join Our <span class="gradient-text">Community</span></h2><p class="text-lg text-gray-600 mt-4 mb-8">Stay up to date with the latest news and announcements.</p<div class="flex justify-center space-x-6"><a href="https://t.me/+KazLf4Tt1e9jZmVk" target="_blank" class="social-icon text-4xl"><i class="fab fa-telegram-plane"></i></a><a href="https://x.com/wagydog" target="_blank" class="social-icon text-4xl"><i class="fab fa-twitter"></i></a></div></div></section>
     </main>
 
-    <footer id="contact">
-        <div class="container footer-container">
-            <div class="footer-column">
-                <h4>RedFace</h4>
-                <p>The New Creator Economy.</p>
-            </div>
-            <div class="footer-column">
-                <h4>Support</h4>
-                <a href="mailto:support@redface.app">support@redface.app</a>
-            </div>
-            <div class="footer-column">
-                <h4>Legal</h4>
-                <a href="#">Privacy Policy</a>
-                <a href="https://docs.google.com/document/d/1qmfbA13A5u29QXfY-9LaupK8RehpxD37/edit?usp=drivesdk&ouid=103868857290033039810&rtpof=true&sd=true" target="_blank">Terms of Service</a>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2025 RedFace App. All rights reserved.</p>
-        </div>
-    </footer>
-    
+    <footer class="py-8 px-6 border-t border-gray-200"><div class="container mx-auto sm:flex justify-between items-center text-center"><div class="flex justify-center space-x-6 mb-4 sm:mb-0"><a href="https://t.me/+KazLf4Tt1e9jZmVk" target="_blank" class="social-icon"><i class="fab fa-telegram-plane fa-lg"></i></a><a href="https://x.com/wagydog" target="_blank" class="social-icon"><i class="fab fa-twitter fa-lg"></i></a></div><p class="text-gray-500">&copy; 2025 WagyDog. All Rights Reserved.</p></div></footer>
+
     <script src="script.js"></script>
+    <script src="marketplace.js"></script>
+    <script src="swap.js"></script>
 </body>
 </html>

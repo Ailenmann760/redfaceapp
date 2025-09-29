@@ -1,85 +1,74 @@
-// --- General Website Functionality ---
-
 document.addEventListener('DOMContentLoaded', () => {
 
-    // Mobile menu toggle
-    const menuBtn = document.getElementById('menu-btn');
-    const mobileMenu = document.getElementById('mobile-menu');
-    const mobileLinks = document.querySelectorAll('.mobile-link');
+    // --- Navbar & Mobile Menu ---
+    const mainHeader = document.querySelector('.main-header');
+    const menuToggle = document.querySelector('.menu-toggle');
+    const mobileMenu = document.getElementById('main-menu');
 
-    if (menuBtn && mobileMenu) {
-        menuBtn.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
-    }
+    menuToggle.addEventListener('click', () => {
+        mobileMenu.classList.toggle('active');
+        menuToggle.classList.toggle('active');
+    });
 
-    mobileLinks.forEach(link => {
+    document.querySelectorAll('.nav-link').forEach(link => {
         link.addEventListener('click', () => {
-            if (mobileMenu) {
-                mobileMenu.classList.add('hidden');
+            if (mobileMenu.classList.contains('active')) {
+                mobileMenu.classList.remove('active');
+                menuToggle.classList.remove('active');
             }
         });
     });
 
-    // Scroll-in animations
-    const observer = new IntersectionObserver((entries) => {
+    // --- Launch Button Logic ---
+    const launchUrl = 'https://redfaceapp.netlify.app';
+    const launchButtons = document.querySelectorAll('.launch-btn');
+
+    launchButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            window.location.href = launchUrl;
+        });
+    });
+
+    // --- Intersection Observer for Animations ---
+    const fadeInElements = document.querySelectorAll('.fade-in');
+    const options = {
+        threshold: 0.1
+    };
+
+    const observer = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('is-visible');
+                observer.unobserve(entry.target);
             }
         });
-    }, { threshold: 0.1 });
+    }, options);
 
-    document.querySelectorAll('.fade-in-section').forEach(section => {
-        observer.observe(section);
+    fadeInElements.forEach(element => {
+        observer.observe(element);
     });
 
-    // Starfield Animation
-    function createStarfield(canvasId) {
-        const canvas = document.getElementById(canvasId);
-        if (!canvas) return;
-        const ctx = canvas.getContext('2d');
-        
-        let stars = [];
-        let numStars = 250;
+    // --- Dark/Light Mode Toggle ---
+    const darkModeToggle = document.getElementById('dark-mode-toggle');
+    const body = document.body;
 
-        function resizeCanvas() {
-            canvas.width = canvas.offsetWidth;
-            canvas.height = canvas.offsetHeight;
-            stars = [];
-            for (let i = 0; i < numStars; i++) {
-                stars.push({
-                    x: Math.random() * canvas.width,
-                    y: Math.random() * canvas.height,
-                    radius: Math.random() * 1.5 + 0.5,
-                    vx: (Math.random() - 0.5) * 0.3,
-                    vy: (Math.random() - 0.5) * 0.3
-                });
-            }
-        }
-
-        function animate() {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-            
-            ctx.fillStyle = "#fff";
-            for (let i = 0, x = stars.length; i < x; i++) {
-                let s = stars[i];
-                ctx.beginPath();
-                ctx.arc(s.x, s.y, s.radius, 0, 2 * Math.PI);
-                ctx.fill();
-                s.x += s.vx;
-                s.y += s.vy;
-                if (s.x < 0 || s.x > canvas.width) s.vx = -s.vx;
-                if (s.y < 0 || s.y > canvas.height) s.vy = -s.vy;
-            }
-            requestAnimationFrame(animate);
-        }
-        
-        window.addEventListener('resize', resizeCanvas);
-        resizeCanvas();
-        animate();
+    const savedMode = localStorage.getItem('redface-dark-mode');
+    if (savedMode === 'dark') {
+        body.classList.add('dark-mode');
+        darkModeToggle.innerHTML = '<i class="fas fa-sun"></i>';
+    } else {
+        darkModeToggle.innerHTML = '<i class="fas fa-moon"></i>';
     }
 
-    createStarfield('starfield');
-    createStarfield('starfield2');
+    darkModeToggle.addEventListener('click', () => {
+        body.classList.toggle('dark-mode');
+        if (body.classList.contains('dark-mode')) {
+            localStorage.setItem('redface-dark-mode', 'dark');
+            darkModeToggle.innerHTML = '<i class="fas fa-sun"></i>';
+        } else {
+            localStorage.setItem('redface-dark-mode', 'light');
+            darkModeToggle.innerHTML = '<i class="fas fa-moon"></i>';
+        }
+    });
+
 });
